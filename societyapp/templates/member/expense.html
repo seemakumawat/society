@@ -1,0 +1,42 @@
+{% extends "member/mindex.html" %}
+{% block hdemo%}
+Society Expense
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    <th class="card-title">Expence id</th>
+                    <th class="card-title">Function</th>
+                    <th class="card-title">Description</th>
+                    <th class="card-title">Amount</th>
+                    <th class="card-title">Date</th>
+                    
+                    {% comment %} <th class="card-title">Show all detail</th> {% endcomment %}
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for expense in expenses%}
+                    <tr>
+                        <td>{{expense.expence_id}}</td>
+                        <td>{{expense.function.function_name}}</td>
+                        <td>{{expense.description}}</td>
+                        <td>{{expense.amount}}</td>
+                        <td>{{expense.date}}</td>
+                        
+                        {% comment %} <td><a href='/editexpense/{{expense.expence_id}}/' > <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+              
+              </div>
+            </div>
+    {% endblock %}   

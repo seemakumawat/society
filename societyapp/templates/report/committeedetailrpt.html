@@ -1,0 +1,28 @@
+<h1 align='center'>committeedetail</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>committee_detail_id</h4></th>
+            <th class="card-title"><h4>committee</h4></th>
+            <th class="card-title"><h4>member</h4></th>
+            <th class="card-title"><h4>member_joining_date</h4></th>
+            <th class="card-title"><h4>member_leaving_date</h4></th>
+            <th class="card-title"><h4>show all detail</h4></th>
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for committeedetail  in committeedetails%}
+            <tr>
+                <td><h5>{{committeedetail.committee_detail_id}}</h5></td>
+                <td><h5>{{committeedetail.committee.work_of_committee}}</h5></td>
+                <td><h5>{{committeedetail.member.name}}</h5></td>
+                <td><h5>{{committeedetail.member_joining_date}}</h5></td>
+                <td><h5>{{committeedetail.member_leaving_date}}</h5></td>
+                
+                <td><a href='/editcommitteedetail/{{committeedetail.committee_detail_id}}/' class="me-2 mdi mdi-eye-outline">show all details</a></td>
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>

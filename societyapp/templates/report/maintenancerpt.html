@@ -1,0 +1,42 @@
+<h1 align='center'>Maintenance
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Maintenance id</h4></th>
+            <th class="card-title"><h4>Month/Year</h4></th>
+            <th class="card-title"><h4>Total Epense</h4></th>
+            <th class="card-title"><h4>Total income</h4></th>
+            <th class="card-title"><h4>Amount required</h4></th>
+            <th class="card-title"><h4>No. of member</h4></th>
+            <th class="card-title"><h4>Maintenance amount</h4></th>
+            <th class="card-title"><h4>Last date</h4></th>
+            <th class="card-title"><h4>Late charges</h4></th>
+            
+            <th class="card-title"><h4>Show maintenance detail</h4></th>
+            {% comment %} <th class="card-title"><h4>Show maintenance</h4></th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for maintenance in maintenances%}
+            <tr>
+                <td><h5>{{maintenance.maintenance_id}}</h4></td>
+                <td><h5>{{maintenance.month_year}}</h4></td>
+                <td><h5>{{maintenance.total_income}}</h4></td>
+                <td><h5>{{maintenance.total_expence}}</h4></td>
+                <td><h5>{{maintenance.amount_required}}</h4></td>
+                <td><h5>{{maintenance.no_of_member}}</h4></td>
+                <td><h5>{{maintenance.maintenance_amount}}</h4></td>
+                <td><h5>{{maintenance.last_date}}</h4></td>
+                <td><h5>{{maintenance.late_charges}}</h4></td>
+                
+                <td><a href='/membermaintenance/{{maintenance.maintenance_id}}/'><i class="me-2 mdi mdi-border-color">view detail</i></a></td>
+                {% comment %} <td><a href='/editmaintenance/{{maintenance.maintenance_id}}/' ><i class="me-2 mdi mdi-border-color">edit maintenance</i></a></td> {% endcomment %}
+            </tr>
+            {% endfor%}
+        </tbody>
+</table>
+<br>
+

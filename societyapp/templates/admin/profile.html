@@ -1,0 +1,87 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+    <div class="col-md-12">
+      
+            <div class="card">
+                
+                <form class="form-horizontal" method='post' enctype='multipart/form-data'>
+                   
+                            
+                        <div class="card-body">
+                            <h4 class="card-title">Personal Info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {% comment %} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
+                                <a href='/updateaprofile/{{member.member_id}}/' ><button  type="button" class="btn btn-primary">Update profile</button></a><div class="border-top">
+                                <div class="card-body">
+                                    {% comment %} <button type="button" class="btn btn-primary">Submit</button> {% endcomment %}
+                                </div>
+                            </div></h4>
+                            <div class="col-md-6">
+                            <div class="form-group row">
+                                <label for="fname" class="col-sm-3 text-right control-label col-form-label">Admin Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="fname" placeholder="First Name Here" value='{{member.name}}' >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Date of birth</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="lname" placeholder="Last Name Here" value="{{member.date_of_birth | date:'Y-m-d'}}" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Email Id</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="lname" placeholder="Password Here" value="{{member.email}}">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="email1" class="col-sm-3 text-right control-label col-form-label">Mobile no.</label>
+                                <div class="col-sm-9">
+                                    <input type="phone" class="form-control" id="email1" placeholder="Company Name Here" value="{{member.contact_no_field}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="lname" class="col-sm-3 text-right control-label col-form-label">Flat no.</label>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="lname" placeholder="Password Here" value="{{member.flat_no_field}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Block</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="cono1" placeholder="Contact No Here" value="{{member.block_no_field}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Comming date</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="cono1" placeholder="Contact No Here" value="{{member.comming_date}}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Profile</label>
+                                <div class="col-sm-9">
+                                    <img src='{{member.profile}}' alt='not found' style='width:30%;height60px'>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                       
+                        
+                        
+                    </div>
+                    
+                </form>
+                </div>
+            </div>
+           
+        </div>
+{% endblock%}

@@ -1,0 +1,51 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> Expenses</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                
+                                
+                    <th class="product-total">Expence id</th>
+                    <th class="product-total">Function</th>
+                    <th class"product-total">Description</th>
+                    <th class="product-total">Amount</th>
+                    <th class="product-total">Date</th>
+                    
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for expense in expenses%}
+                            <tr>
+                                <td  class="product-total">{{expense.expence_id}}</td>
+                                <td  class="product-total">{{expense.function.function_name}}</td>
+                                <td  class="product-total">{{expense.description}}</td>
+                                <td  class="product-total">{{expense.amount}}</td>
+                                <td  class="product-total">{{expense.date}}</td>
+                                
+                              
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

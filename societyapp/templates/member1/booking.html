@@ -1,0 +1,67 @@
+{% extends "member1/index.html" %}
+{% block demo%} 
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">My</span> Booking</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                    <th class="product-total">starting_date</th>
+                    <th class="product-total">ending_date</th>
+                    
+                    <th class="product-total">event_name</th>
+                    <th class="product-total">booking_date</th>
+                    <th class="product-total">status</th>
+                    <th class="product-total">total</th>
+                    <th class="product-total">Show detail</th>
+                    
+                    
+                    
+                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking  in bookings%}
+                    <tr>
+                        
+                        <td class="product-total">{{booking.starting_date}}</td>
+                        <td class="product-total">{{booking.ending_date}}</td>
+                        
+                        <td class="product-total">{{booking.event_name}}</td>
+                        <td class="product-total">{{booking.booking_date}}</td>
+                        <td class="product-total">{{booking.status}}</td>
+                     
+                        <td class="product-total">{{booking.total}}</td>
+                        {% comment %} <td class="product-total"><a href='/mbookingdetail/{{booking.booking_id}}/'>Show</a></td> {% endcomment %}
+                        <td class="product-total"><a href='/binvoice/{{booking.booking_id}}/'>Show</a></td>
+                        
+                        
+                      
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <center>{{msg}}</center>
+                    <center><a href='/mitem/'><button type="button" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+              Book item
+              </i>
+            </button></a></center>
+                           
+                           
+                <br></div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

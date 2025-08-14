@@ -1,0 +1,145 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Invoice Template</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static 'invoice/web/modern-normalize.css' %}">
+  <link rel="stylesheet" href="{% static 'invoice/web/web-base.css' %}">
+  <link rel="stylesheet" href="{% static 'invoice/invoice.css' %}">
+  <script type="text/javascript" src="{% static 'invoice/web/scripts.js' %}"></script>
+</head>
+<body>
+
+{% comment %} <div class="web-container">
+  <div class="page-container">
+    Page
+    <span class="page"></span>
+    of
+    <span class="pages"></span>
+  </div>
+  
+  <div class="logo-container">
+    <img
+      style="height: 80px"
+      src="{% static 'member/assets/images/logo.jpg' %}"
+    >
+  </div> {% endcomment %}
+  
+  <table class="invoice-info-container">
+    <tr>
+       
+        {% comment %} {% for booking in bookings%} {% endcomment %}
+   
+      
+            <td rowspan="2" class="client-name">{{member.name}}</td>
+         
+         {% comment %} {%endfor%} {% endcomment %}
+      <td>
+       <h3> Devam residency society</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Vatva road, new vatva, Ahmedabad
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Invoice Date: <strong>May 24th, 2024</strong>
+      </td>
+      <td>
+        Contact no.:90990 33422
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Invoice No: <strong>12345</strong>
+      </td>
+      <td>
+        info@devambuildcon.com
+      </td>
+    </tr>
+  </table>
+  
+  
+  <table class="line-items-container" >
+    <thead>
+      <tr>
+        <th class="heading-quantity">starting_date</th>
+        <th class="heading-quantity">ending_date</th>
+      
+        <th class="heading-quantity">event_name</th>
+        <th class="heading-quantity">booking_date</th>
+        <th class="heading-quantity">status</th>
+        <th class="heading-quantity">total</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings%}
+      <tr> 
+        
+        <td>{{booking.starting_date}}</td>
+        <td>{{booking.ending_date}}</td>
+        <td>{{booking.event_name}}</td>
+        <td>{{booking.booking_date}}</td>
+        <td>{{booking.status}}</td>
+        <td>{{booking.total}}</td>
+        
+      </tr>
+      {%endfor%}
+      
+    
+    </tbody>
+  </table>
+  
+  
+  <table class="line-items-container has-bottom-border">
+    <thead>
+      <tr>
+        <th>Payment Info</th>
+        <th>Due By</th>
+        <th>Total Due</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="payment-info">
+          <div>
+            Account No: <strong>123567744</strong>
+          </div>
+          <div>
+            Routing No: <strong>120000547</strong>
+          </div>
+        </td>
+        <td class="large">May 30th, 2024</td>
+        <td class="large total">{{total}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="footer">
+    <div class="footer-info">
+      <span>info@devambuildcon.com</span> |
+      <span>909 903 3422</span> |
+      
+    </div>
+    <div class="footer-thanks">
+      
+      <span>Thank you!</span>
+    </div>
+  </div>
+  
+  <!-- See invoice.html! It is injected here... -->
+
+</div>
+
+<script type="text/javascript">
+  load(document.querySelector('.web-container'), './invoice.html');
+</script>
+
+</body></html>

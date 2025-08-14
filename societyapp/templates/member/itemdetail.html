@@ -1,0 +1,58 @@
+{% extends "member/mindex.html" %}
+{%load static %}
+{%block hdemo%}
+{% for member in members%}
+Welcome {{items.item_name}}
+{%endfor%}
+{%endblock%}
+{%block mdemo%}
+
+
+         
+            <div class="row">
+             
+               <div class="col-md-6">
+                <div class="map_main">
+                    <div class="map-responsive">
+                       <img src="{{items.image}}" width="400" height="250" frameborder="1" style="border:0; width: 100%;" allowfullscreen="">
+                    </div>
+                 </div>
+               </div>
+            
+               <div class="col-md-3">
+                  
+                  <form id="request" class="main_form" method='post' action='/cartsave/{{items.item_id}}/'>
+                    {%csrf_token%} 
+                    <div class="row">
+                        
+                        <div class="col-md-12">
+                           <input type='text' value='{{items.item_name}}' class="contactus" name='iname'm readonly>
+                          
+                        </div>
+                        <div class="col-md-12">price:
+
+                           <input class="contactus" value="{{items.price_per_unit}}" readonly type="text" name="price">                          
+                        </div>
+                        <div class="col-md-12">Quantity
+                           <input class="contactus"  type="number" name="qty">                          
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                         <div class="col-md-12">
+                           <button class="send_btn" type='submit'>
+                           <img src="{% static 'member/assets/images/addtocart.jpg' %}" width='25' height='25'>  <a class="primary-btn">Add to cart</button></a>
+                           
+                        </div>
+                        
+                        
+                     </div>
+                  </form>
+               </div>
+               
+            </div>
+         </div>
+      </div>
+      {% endblock %}

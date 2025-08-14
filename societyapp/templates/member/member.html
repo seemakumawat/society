@@ -1,0 +1,63 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+{% for member in members%}
+Welcome {{member.name}}
+{%endfor%}
+{%endblock%}
+{%block mdemo%}
+
+
+         
+            <div class="row">
+              {% for member in members%}
+               <div class="col-md-6">
+                  <form id="request" class="main_form" method='post' action='/editmmember/{{member.member_id}}/' enctype='multipart/form-data'>
+                    {%csrf_token%} 
+                    <div class="row">
+                       <div class="col-md-12 ">
+                          Name
+                           <input class="contactus" value="{{member.name}}" type="type" name="txtname"> 
+                        </div> 
+                        <div class="col-md-12">
+                          <b>Mobile no.</b>
+                           <input class="contactus" value="{{member.contact_no_field}}" type="number" name="con"> 
+                        </div>
+                       
+                        <div class="col-md-12">
+                          <b>Birth date</b>
+                          <input class="contactus"  value="{{member.date_of_birth |date:'Y-m-d'}}" type="date" name="dob"> 
+                        </div>
+                        <div class="col-md-12">
+                          <b>Email</b>
+                          <input class="contactus"  value="{{member.email}}" type="email" name="txtemail"> 
+                        </div>
+                        <div class="col-md-12">
+                          <b>Password</b>
+                          <input class="contactus"  value="{{member.password }}" type="password" name="txtps"> 
+                        </div>
+                        <div class="col-md-12">
+                          <b>profile</b>
+                          <input class="contactus"  value="{{member.profile }}" type="file" name="pr"> 
+                        </div>
+                         <div class="col-md-12">
+                           <button class="send_btn" type='submit'>update</button>
+                        </div>
+                        
+                        
+                     </div>
+                  </form>
+               </div>
+            
+               <div class="col-md-3">
+                  <div class="map_main">
+                     <div class="map-responsive">
+                        <img src="{{member.profile}}" name='profile' width="400" height="250" frameborder="1" style="border:0; width: 100%;" allowfullscreen="">
+                     </div>
+                  </div>
+               </div>
+               
+               {%endfor%}
+            </div>
+         </div>
+      </div>
+      {% endblock %}

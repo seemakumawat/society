@@ -1,0 +1,70 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+Enter detail of occupant
+{%endblock%}
+{%block mdemo%}
+<div class="container">
+    <div class="row">
+       <div class="col-md-3"></div>
+       <div class="col-md-6">
+          <form id="request" class="main_form" action='/addmoccupant/'  enctype='multipart/form-data' method='post'>
+            {%csrf_token%} 
+            <div class="row">
+                
+                 <div class="col-md-12 ">
+                   
+                    <select name='mname'
+                    class="contactus">
+                    
+                    {%for member in members%}
+                    <option value='{{member.member_id}}' selected>{{member.name}}</option>
+                    {%endfor%}
+                    </select>
+                </div>
+                <div class="col-md-12">
+                   <input class="contactus" placeholder="Name" type="type" name="nm"> 
+                </div>
+                {% comment %} <div class="col-md-12">
+                  <input class="contactus" placeholder="email" type="email" name="email"> 
+               </div>
+               <div class="col-md-12">
+                <input class="contactus" placeholder="password" type="password" name="pwd"> 
+             </div>
+             <div class="col-md-12">
+              <input class="contactus" placeholder="Date" type="date" name="bdt"> 
+           </div> {% endcomment %}
+                <div class="col-md-12">
+                  <input class="contactus" placeholder="Religion" type="type" name="rg"> 
+               </div>
+               <div class="col-md-12">
+                <input class="contactus" placeholder="Date" type="date" name="cdt"> 
+             </div>
+             
+           <div class="col-md-12">
+            <input class="contactus" placeholder="Rent amount" type="number" name="ramt"> 
+         </div>
+         <div class="col-md-12">
+          <input class="contactus" placeholder="family member" type="number" name="fno"> 
+       </div>
+       <div class="col-md-12">
+        <input class="contactus" placeholder="" type="file" name="profile" > 
+     </div>
+                
+                <div class="col-md-12">
+                   <button class="send_btn" type='submit'>submit</button>
+                </div>
+             </div>
+          </form>
+       </div>
+       
+    </div>
+  </div>
+    
+    
+    
+    
+  {% endblock%}
+  
+    
+    
+    

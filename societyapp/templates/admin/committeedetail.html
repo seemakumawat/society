@@ -1,0 +1,52 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><h3>Committee detail</h3> </h5>
+      <div class="table-responsive">
+        <table
+          id="zero_config"
+          class="table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+                <th class="card-title"><h4>committee_detail_id</h4></th>
+                <th class="card-title"><h4>committee</h4></th>
+                <th class="card-title"><h4>member</h4></th>
+                <th class="card-title"><h4>member_joining_date</h4></th>
+                <th class="card-title"><h4>member_leaving_date</h4></th>
+                <th class="card-title"><h4>show all detail</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+         
+                {% for committeedetail  in committeedetails%}
+                <tr>
+                    <td><h5>{{committeedetail.committee_detail_id}}</h5></td>
+                    <td><h5>{{committeedetail.committee.work_of_committee}}</h5></td>
+                    <td><h5>{{committeedetail.member.name}}</h5></td>
+                    <td><h5>{{committeedetail.member_joining_date}}</h5></td>
+                    <td><h5>{{committeedetail.member_leaving_date}}</h5></td>
+                    
+                    <td><a href='/editcommitteedetail/{{committeedetail.committee_detail_id}}/' class="me-2 mdi mdi-eye-outline">show all details</a></td>
+                    
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+     
+        
+          <div class="border-top">
+            <div class="card-body"><center>
+             <button class="btn btn-primary">
+            <i class="me-2 mdi mdi-arrow-left">
+              <a href="/committee/"
+              style="color:white">Back 
+            </i></a>
+          </button></div></div>
+      </div>
+
+
+          </div>
+        </div>
+{% endblock %}

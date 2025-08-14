@@ -1,0 +1,44 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><h3>Complaint</h3> </h5>
+      <div class="table-responsive">
+        <table
+          id="zero_config"
+          class="table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+                <th class="card-title"><h4>Complaint id</h4></th>
+                <th class="card-title"><h4>Member</h4></th>
+                <th class="card-title"><h4>Description</h4></th>
+                <th class="card-title"><h4>Complaint date</h4></th>
+                <th class="card-title"><h4>Status</h4></th>
+                <th class="card-title"><h4>Committee</h4></th>
+                <th class="card-title"><h4>Member name</h4></th>
+                <th class="card-title"><h4>Edit</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+         
+                {% for complaint  in complaints%}
+                <tr>
+                    <td><h5>{{complaint.complaint_id}}</h5></td>
+                    <td><h5>{{complaint.member.name}}</h5></td>
+                    <td><h5>{{complaint.description}}</h5></td>
+                    <td><h5>{{complaint.complaint_date}}</h5></td>
+                    <td><h5>{{complaint.status}}</h5></td>
+                    <td><h5>{{complaint.committee_detail.committee.work_of_committee}}</h5></td>
+                    <td><h5>{{complaint.committee_detail.member.name}}</h5></td>
+                    <td><a href='/editcomplaint/{{complaint.complaint_id}}/' > <i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                    
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+            
+          
+          </div>
+        </div>
+{% endblock %}

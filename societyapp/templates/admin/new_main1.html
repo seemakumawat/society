@@ -1,0 +1,123 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+  <div class="col-md-12">
+    <div class="card">
+      <form  action='/new_main2/' method='post' class="form-horizontal">
+        {% csrf_token %}
+          <div class="card-body">
+            <h2 class="card-title"><h3 align='center'>Add maintenance</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>selected month</h4> </label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  placeholder="name"
+                  name='txtnm'
+                  value="{{my}}"
+                  readonly
+                />
+              </div>
+        </div>
+        
+        <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Total income</h4></label
+            >
+            <div class="col-sm-9">
+              
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder=""
+                name='txtincome'
+               
+                value="{{totalincome}}" 
+               
+                readonly
+                />
+            </div>
+            
+          </div>
+
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Total expense</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder="name"
+                name='txtexpense' 
+                value="{{totalexpense}}"
+                readonly
+              />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Required amount</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder="name"
+                name='txtamt'
+                value="{{amt}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Additional  amount</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+                type="number"
+                class="form-control"
+                id="aamount"
+                placeholder="amount"
+                name='aamount'
+               
+               
+              />
+            </div>
+          </div>
+                <div class="border-top">
+                  <div class="card-body">
+                    <center>
+                      <button type="submit" class="btn btn-primary">
+                        <i class="me-2 mdi mdi-border-color"> next
+                        </i>
+                       </button>
+                    </center>
+    </div>
+                             
+                </div>
+            </div>
+        </div>
+      </div>
+    </div> 
+        {% endblock %}

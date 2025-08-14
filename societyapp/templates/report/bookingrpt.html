@@ -1,0 +1,39 @@
+<h1 align='center'>Booking</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Member name</h4></th>
+            <th class="card-title"><h4>booking</h4></th>
+            <th class="card-title"><h4>item</h4></th>
+            <th class="card-title"><h4>quantity</h4></th>
+            <th class="card-title"><h4>amount</h4></th>
+            {% comment %} <th class="card-title"><h4>booking_date</h4></th>
+            <th class="card-title"><h4>status</h4></th>
+            <th class="card-title"><h4>total</h4></th>
+            
+            <th class="card-title">show booking delails</th> {% endcomment %}
+            {% comment %} <th class="card-title">show booking </th> {% endcomment %}
+          </tr>
+      </thead>
+      <tbody>
+     
+            {% for bookingdetail  in bookingdetails%}
+            <tr>
+                <td><h5>{{bookingdetail.booking.member.name}}</h5></td>
+                <td><h5>{{bookingdetail.booking.event_name}}</h5></td>
+                <td><h5>{{bookingdetail.item.item_name}}</h5></td>
+                <td><h5>{{bookingdetail.quantity}}</h5></td>
+                <td><h5>{{bookingdetail.amount}}</h5></td>
+                
+                {% comment %} <td><h5>{{bookingdetail.booking_date}}</h5></td>
+                <td><h5>{{bookingdetail.status}}</h5></td>
+                <td><h5>{{bookingdetail.total}}</h5></td>
+                
+                <td><a href='/bookingdetailrpt/{{booking.booking_id}}/' class="me-2 mdi mdi-eye-outline">show booking details</a></td> {% endcomment %}
+                {% comment %} <td><a href='/editbooking/{{booking.booking_id}}/' class="me-2 mdi mdi-eye-outline">show booking</a></td> {% endcomment %}
+                
+            </tr>
+            {% endfor%}
+            <tr><td colspan='4'>Total Amount</td><td><h5>{{bookings.total}}</h5></td></tr>
+        </tbody>
+    </table>

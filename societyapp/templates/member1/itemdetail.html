@@ -1,0 +1,39 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mb-5 mb-lg-0">
+            <div class="form-title">
+                
+            </div>
+             <div id="form_status"></div>
+            <div class="contact-form">
+                <form id="request" class="main_form" method='post' action='/cartsave/{{items.item_id}}/'>
+                    {% csrf_token %}
+                    <p>
+                        <input type='text' value='{{items.item_name}}' class="contactus" name='iname'm readonly>
+
+                    </p>
+                    <p>
+                        <input class="contactus" value="{{items.price_per_unit}}" readonly type="text" name="price">                          
+
+                    </p>
+                    <p> <input class="contactus"  type="number" name="qty" placeholder='quantity'>                          
+                    </p>
+                    <p><input type="submit" value="Submit"></p>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-form-wrap">
+                <div class="contact-form-box">
+                    <img src='{{items.image}}'>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

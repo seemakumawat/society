@@ -1,0 +1,32 @@
+
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+welcome {{members.name}}
+{%endblock%}
+{%block mdemo%}
+{%load static %}
+
+
+<div class="row">
+    {%for member in members%}
+    <div class="col-md-4 col-sm-6">
+        
+       <div id="serv_hover"  class="room">
+        
+          <div class="room_img">
+             <figure><img src="{{member.profile}}" alt="#"/></figure>
+          </div>
+          <div class="bed_room">
+             <h3>{{member.name}}</h3>
+             <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+             
+            </div>
+        
+       </div>
+       
+    </div>
+   
+    {%endfor%}
+ </div>
+
+{%endblock%}

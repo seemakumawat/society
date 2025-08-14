@@ -1,0 +1,169 @@
+{% extends "member1/index.html" %}
+
+{%block demo%}
+{% comment %} <div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addmmemberfunction/{{memberfunctions.member_function_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+            <h2 class="card-title" align='center'>Enter Function detail</h2>
+            <div class="form-group row">
+            <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >function</label
+            >
+            <div class="col-sm-9">
+                
+                <select name='fname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                {%for function in functions%}
+                <option value='{{function.function_id}}'>{{function.function_name}}</option>
+                {%endfor%}
+                </select>
+            </div>
+        </div>
+
+              <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >member</label
+                >
+              <div class="col-sm-9">
+                
+                    <select name='mname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for member in members%}
+                    <option value='{{member.member_id}}'>{{member.name}}</option>
+                    {%endfor%}
+                    </select>
+                  </div>
+                
+                 
+                     
+                      
+                       
+              
+            </div>
+            
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >amount</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number'
+                 name='txtamount' 
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >pay date</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='txtdate'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >no of pass</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                    name='txtpass'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                  />
+                </div>
+              </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div> {% endcomment %}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="checkout-accordion-wrap">
+            <div class="accordion" id="accordionExample">
+              <div class="card single-accordion">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Enter Function detail
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <div class="billing-address-form">
+                        <form  action='/addmmemberfunction/{{functions.function_id}}/' method='post' >
+                            {% csrf_token%}
+                          
+                            <p><input type="type" name="name" placeholder="" value='{{functions.function_name}}' readonly></p>
+                           
+                            <p><input type="number" name="total" placeholder="" value='{{functions.amount_per_member}}' readonly></p>
+                            <p><input type="number" name="p" placeholder="Number of pass"></p>
+                            {% comment %} <p><input type="date" name="dt" placeholder=""></p> {% endcomment %}
+                           
+                            <div><input type="submit" name="submit"></p>
+                    
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+             
+              <div class="card single-accordion">
+                
+               
+                
+              </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+</div>
+  {% endblock%}
+  
+    
+    
+    

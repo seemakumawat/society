@@ -1,0 +1,15 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<form method='POST' action='/maintenancerpt/'>
+    {% csrf_token %}
+    <select name='search'
+                >
+                {%for maintenance in maintenances%}
+                    <option value="{{maintenance.month_year}}">{{maintenance.month_year}}</option>
+                {%endfor%}
+    </select>
+    <input type='submit' value='search by month/year' name='sbb'>
+&nbsp;
+</form>
+{%endblock%}

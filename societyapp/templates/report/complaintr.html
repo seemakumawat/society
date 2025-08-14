@@ -1,0 +1,159 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<form method='POST' action='/complaintrpt/'>    {% csrf_token %}
+   
+    
+        <div class="col-sm-5">
+         
+          
+             <div class="form-group row">
+               
+                <div class="col-md-9"> 
+                    {% if complaint.status == 'pending' %}
+                      <div class="form-check">
+                      <input
+                        type="radio"
+                        
+                        id="customControlValidation1"
+                        name="search"
+                        value='pending'
+                       
+                      />
+                      <label
+                        
+                        >pending</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                        
+                        id="customControlValidation2"
+                        name="search"
+                        value='cancel'
+                        
+                      />
+                      <label
+                       
+                        >cancel</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                       
+                        id="customControlValidation2"
+                        name="search"
+                        value='solved'
+                        
+                      />
+                      <label
+                       
+                        >solved</label
+                      >
+                    </div>
+                    {%elif complaint.status == 'cancel' %}
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                       
+                        id="customControlValidation1"
+                        name="search"
+                        value='pending'
+                        
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation1" {% endcomment %}
+                        >pending</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                        {% comment %} class="form-check-input" {% endcomment %}
+                        id="customControlValidation2"
+                        name="search"
+                        value='cancel'
+                        checked
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation2" {% endcomment %}
+                        >cancel</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                        {% comment %} class="form-check-input" {% endcomment %}
+                        id="customControlValidation2"
+                        name="search"
+                        value='solved'
+                        
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation2" {% endcomment %}
+                        >solved</label
+                      >
+                    </div>
+                     {%else%}
+                     <div class="form-check">
+                      <input
+                        type="radio"
+                        {% comment %} class="form-check-input" {% endcomment %}
+                        id="customControlValidation1"
+                        name="search"
+                        value='pending'
+                        
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation1" {% endcomment %}
+                        >pending</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                        {% comment %} class="form-check-input" {% endcomment %}
+                        id="customControlValidation2"
+                        name="search"
+                        value='cancel'
+                        
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation2" {% endcomment %}
+                        >cancel</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        type="radio"
+                        {% comment %} class="form-check-input" {% endcomment %}
+                        id="customControlValidation2"
+                        name="search"
+                        value='solved'
+                        
+                      />
+                      <label
+                        {% comment %} class="form-check-label mb-0" {% endcomment %}
+                        {% comment %} for="customControlValidation2" {% endcomment %}
+                        >solved</label
+                      >
+                    </div> 
+                    {%endif%}
+              </div>
+          &nbsp;<input type='submit' value='search by status' name='sbb'>
+        {% comment %} </div> {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+&nbsp;
+
+</form>
+{%endblock%}
+
+
+    

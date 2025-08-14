@@ -1,0 +1,74 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/additem/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Add new item</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Item Name</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fname"
+                  placeholder="name"
+                  name='txtnm' required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Quantity</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                  type='number'
+                  name='qt' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="quantity"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>price/unit</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number'
+                 name='amount' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="price"
+                  required
+                />
+              </div>
+            </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+            <center> <button type="submit" class="btn btn-primary" onclick='alert("Item added succefully")'>
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

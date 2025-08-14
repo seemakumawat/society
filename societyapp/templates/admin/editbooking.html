@@ -1,0 +1,330 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+          
+  <div class="col-md-12">
+    <div class="card">
+      <form  action='/editbooking/{{booking.booking_id}}/' method='post' class="form-horizontal">
+        {% csrf_token %}
+          <div class="card-body">
+          <h4 class="card-title"><h3>Edit booking</h3> </h4>
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>member</h4></label
+            >
+            <div class="col-sm-9">
+              
+              {%for member in members%}
+                      {%if member == booking.member%}
+                              
+                              <input
+                                type='text'
+                                name='nmn' 
+                                class="form-control"
+                                id="lname"
+                                placeholder="place"
+                                value="{{member.name}}"
+                        
+                            readonly
+                          />&nbsp;
+                              <input
+                              type='text'
+                              name='mname' 
+                                class="form-control"
+                                id="lname"
+                                placeholder="place"
+                                value="{{member.member_id}}"
+                            
+                                readonly
+                              />&nbsp;
+                              
+                      {%endif%}
+              {% endfor %}
+           </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>starting_date</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text'
+               name='sdt' 
+                class="form-control"
+                id="lname"
+                placeholder="place"
+                value="{{booking.starting_date}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>ending_date</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text' 
+              name='edt'
+                class="form-control"
+                id="lname"
+                placeholder=""
+                value="{{booking.ending_date}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>time</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='time'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.time}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>event_name</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='txtenm'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.event_name}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>booking_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='bdt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.booking_date}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Status</h4> </label
+              >
+              <div class="col-md-9"> 
+                  {% if booking.status == 'pending' %}
+                    <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='pending'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >pending</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='cancel'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >cancel</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='booked'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >booked</label
+                    >
+                  </div>
+                  {%elif booking.status == 'cancel' %}
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='pending'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >pending</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='cancel'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >cancel</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='booked'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >booked</label
+                    >
+                  </div>
+                   {%else%}
+                   <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='pending'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >pending</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='cancel'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >cancel</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='booked'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >booked</label
+                    >
+                  </div> 
+                  {%endif%}
+            </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>total</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='total'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value={{booking.total}}
+                                    readonly
+                />
+              </div>
+            </div>
+      
+        </div>
+        <div class="border-top">
+          <div class="card-body">
+            <center>
+              <button type="submit" class="btn btn-primary">
+                <i class="me-2 mdi mdi-border-color"> Update
+                </i>
+               </button>
+               <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-arrow-left">
+                  <a href="/one_booking/" 
+                  style="color:white">Back 
+                </i></a>
+              </button>
+                     &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                      Reset
+                      </i>
+                    </button>&nbsp;
+                   
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

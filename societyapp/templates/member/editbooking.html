@@ -1,0 +1,209 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+edit your booking
+{%endblock%}
+{% block mdemo%}
+
+<div class="row">
+          
+  <div class="col-md-12">
+    <div class="card">
+      <form  action='/editmbooking/{{booking.booking_id}}/' method='post' class="form-horizontal">
+        {% csrf_token %}
+          <div class="card-body">
+          <h4 class="card-title">Edit booking </h4>
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              >member</label
+            >
+            <div class="col-sm-9">
+              {% comment %} <select name='mname'
+              class="select2 form-select shadow-none"
+              style="width: 100%; height: 36px">
+               {% endcomment %}
+              {%for member in members%}
+                      {%if member == booking.member%}
+                              {% comment %} <option value='{{member.member_id}}' selected readonly>{{member.name}}</option> {% endcomment %}
+                      {% comment %} {%else%}
+                              <option value='{{member.member_id}}' >{{member.name}}</option> {% endcomment %}
+                              <input
+                                type='text'
+                                name='nmn' 
+                                class="form-control"
+                                id="lname"
+                                placeholder="place"
+                                value="{{member.name}}"
+                        
+                            readonly
+                          />&nbsp;
+                              <input
+                              type='text'
+                              name='mname' 
+                                class="form-control"
+                                id="lname"
+                                placeholder="place"
+                                value="{{member.member_id}}"
+                            
+                                readonly
+                              />&nbsp;
+                              
+                      {%endif%}
+              {% endfor %}
+           </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              >starting_date</label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text'
+               name='sdt' 
+                class="form-control"
+                id="lname"
+                placeholder="place"
+                value="{{booking.starting_date}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              >ending_date</label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text' 
+              name='edt'
+                class="form-control"
+                id="lname"
+                placeholder=""
+                value="{{booking.ending_date}}"
+                readonly
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >time</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='time'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.time}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >event_name</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='txtenm'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.event_name}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >booking_date</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='bdt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.booking_date}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >status</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='st'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.status}}"
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >total</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='total'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{booking.total}}"
+                  
+                />
+              </div>
+            </div>
+      
+        </div>
+        <div class="border-top">
+          <div class="card-body">
+            <center>
+              <button type="submit" class="btn btn-primary">
+                <i class="me-2 mdi mdi-border-color"> Update
+                </i>
+               </button>
+               <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-arrow-left">
+                  <a href="/one_booking/" 
+                  style="color:white">Back 
+                </i></a>
+              </button>
+                     &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                      Reset
+                      </i>
+                    </button>&nbsp;
+                   
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

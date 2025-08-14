@@ -1,0 +1,225 @@
+{% extends "visitor/index.html" %}
+
+{%block demo%}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div style='height:50px;width:100%'>
+                </div>
+                <div class="featured-text">
+                    <h2 class="pb-3">Why <span class="orange-text">Devam Residency</span></h2>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-6 mb-4 mb-md-5">
+                            {% comment %} Hello EveryoneAbout Devam Residency {% endcomment %}
+                            Welcome to Devam Residency, an abode of magnificent Apartments with all modern features required for a soulful living. Nestled amidst a posh locality, Vatva in Ahmedabad, this Residential haven flaunts a resort-like environment that effectively eases off the day's tiredness and makes you discover the difference between a concrete house and a loving home. The builders of the project, Devam Buildcon have ensured that all homes at Devam Residency offer privacy and exclusivity to its inhabitants. It is a place that sets a contemporary lifestyle for its residents. The Devam Residency offers 260 luxurious, environmental friendly 1 BHK and 2 BHK beautiful houses. Devam Residency in a thoughtfully designed project having world class amenities like 24Hrs Water Supply, 24Hrs Backup Electricity, CCTV Cameras, Covered Car Parking, Fire Safety, Indoor Games, Landscaped Garden, Lift, Maintenance Staff, Play Area, Rain Water Harvesting and Security Personnel. The project being at an awesome locality enjoys all the perks of a lavish lifestyle. It is legally approved along with following bank approvals All Leading Banks.
+                            
+                            
+                           <br> The Devam Residency is meticulously designed and exclusively planned with world class amenities and top line specifications such as 24Hrs Water Supply, 24Hrs Backup Electricity, CCTV Cameras, Covered Car Parking, Fire Safety, Indoor Games, Landscaped Garden, Lift, Maintenance Staff, Play Area, Rain Water Harvesting and Security Personnel.
+                            
+                            
+                            <br>The Approx percentage of units sold out till now is 100.
+                            
+                            
+                            Devam Residency The township is located Vatva in. Ahmedabad city.
+                            
+                            
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+            {% comment %} <div class="col-lg-12">
+                <div style='height:50px;width:100%'>
+                </div>
+                <div id="project-overview-details"><div class="prodls_imagewrap">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-5 pdrgnone" id="gallery_project">
+                          <div class="bgclolr mmrbtnone">
+                                          <div class="section-header pdftrs">Gallery</div>
+                                          <div class="pro-pnv-img photo-count_3 clearfix"><div class="pnv-img-wraper img-responsive bgload" onclick="CfAppActions.getGalleryData('images');"><img title="devam-residency-ahmedabad" alt="devam-residency-ahmedabad" src="https://teja12.kuikr.com/is/a/c/570x430/public/images/apartments/original_img/xtnqyp.gif"></div><div class="pnv-img-wraper img-responsive bgload" onclick="CfAppActions.getGalleryData('images');"><img title="devam-residency-ahmedabad" alt="devam-residency-ahmedabad" src="https://teja12.kuikr.com/is/a/c/280x210/gallery_images/original/cf5cb448f1a8618.gif"></div><div class="pnv-img-wraper img-responsive bgload" onclick="CfAppActions.getGalleryData('images');"><img title="devam-residency-ahmedabad" alt="devam-residency-ahmedabad" src="https://teja12.kuikr.com/is/a/c/280x210/gallery_images/original/cf5cb448f19f688.gif"><div class="grt5">+7 <span> IMAGES</span></div></div></div>
+                                       </div>    </div>
+                      <div class="col-xs-12 col-sm-7">
+                        <div class="pro_dls_info">
+                          <ul>
+                                          <li>
+                                <small>BHK</small>
+                                <span>
+                                    1, 2 BHK              </span>
+                              </li>
+                                                      <li>
+                                <small>Area</small>
+                                <span>
+                                  <div>
+                                    603 - 972 sq.ft. 
+                                      <a class="area-converter-icon" href="/area-converter">
+                                        <img loading="lazy" width="14" height="14" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAABA1JREFUWIXNWV1uGkkQ/qqGH2HW0vgEHgsjHk1OsHCC5QbAeyR79gLOCbbx7r7bOUHiE0BOEPbRIo6GE4CEsL0wXbUPhogAaw8Nsv1JSPRQ1f1RNVXV1U1Yg5EpVDyP6ypaAVGwTmbXIEUXjK61cr0f3n5e+X1xMDClIOvZS1WqQHVIoM9Wpf8SRJlwQqCyEgVQjSY6rR6E/WiF6MAUy2nSNgGAUpgPe1cvQXAZY1NsEOm5Aj6Uqvmw1/1BdGBKQZrsVwaGpNNqbuGfvAbuTSlQsm0F/IlO3x2E/YgBIEO2/VZIAkAuvIlIvSoAZL30JQDQyBRqzPwJguZrufv/MDbFBhiXIlJlz+PfSDV6ayQBIB/2rqA69IjrKRGUSeifpMr35jDYlsADMDwI+8Mksiq4BmslRYSykFw/pzBPXaJU2ZZoBsC4dbySgtYSJY2IuJ5KOnnWk3OJ0c/T5IASWuMpjP44amVT6UsA1STyiYmqaI2IqrsgCQApyrREbDuxfOKZify9VDwAFiqYINiEHDGif+20+Zy71yE50UUlnZyppIeitrmJHsXUyHLmHMBGeoAjUYLnQ+Pr/fB7ZxO9kSlUADp0WZNdlF4DThZV0og9ro9MIdhEz/PoV43jxDl7EU5EY8Qtjtn3OLWRG62VL7+QtFzWdCI6qypnLrqu2Pod3UVJTYKtiQql2/r3kVMkbwIn1wPzVIMKAP9ugnBkCp3lXmdsig2BBAuPOvvhbcdlvZ2lJwb7y88EspNyC2xh0ZllOuPWcX0vA0PveytN4MzCKx2lC5yJzrGn03f0fjcblaewtet3tZt6Ds4WvTOFmsWjewemFGQgleV25u6v0ilUyvOxtfLRNZiciSo4YtL22BTLIFuH6sdlGRvHfQAH8zGDna3vTDQf9rojU2gy0ydYus7//u3DssybCKaBKQVM1pDiSllr9xfFeu6095NVR6ZQUXAwH1tMOi6bZmCLYMpAKqpysXfWa0KpGoscrRGreKT1+SeLVHmNTCJs4/qrhe9dAN1lmf3w9oPr/MtIblHVnaYhgaxUsqeQnCij+yC8k63dwBz65OGUQJ2kOoldz9ZrKtn2+KK4E7Iq2mGdJm7yUlCNPOJnt2m58CYCcKTm0H8ANnLb+vmSRT97OCFBN6WCL2CtIWELOyuZL1I2AQBCZQAdVtIrEPljU2y82OIJMTbFBogCq3JNADD+87gNQXl+uvvK/AA8FpQM2TYB2Dv7dsTAY6AAQIbS7cEL9UBPYU4SgE86rQKz9JQLbyIoVQH4GUq3X/M1GJtiI032K2aXDfOg++n65sch/+wKhZm7sbVOBwabwvP4UB5PDH3oY+rKrbu+WcTIFGqkVAPrCRE71+eNoBoRqGN1/Z71P+b32bxVp36JAAAAAElFTkSuQmCC">
+                                        <p>Change your area measurement</p>
+                                      </a>
+                                  </div>
+                                  <small class="smtext">(56.02 - 90.3 sq.m)</small>
+                                </span>
+                              </li>
+                                                      <li>
+                                <small>Possession</small>
+                                <span>Jun-2021   <i>(Ready-to-move)</i>
+                                                </span>
+                              </li>
+                                          <li>
+                                <small>Price Range 
+                                  <i class="icon-info"><div class="pricebrk">Onwards*</div></i>              </small>
+                                <span><i class="icon-inr"></i> 13.86 L  - 22.35 L </span>
+                              </li>
+                                         <li>
+                                <small>Property Type</small>
+                                <span>Apartment</span>
+                              </li>
+                                          <li>
+                                <small>Launched Date</small>
+                                <span>Oct-2017</span>
+                              </li>
+                                      </ul>
+                          <div class="clearfix"></div>
+                                    <div class="colds">
+                              <div class="rara_info">RERA ID <i class="icon-info">
+                                <div class="tooltipp">RERA detail displayed here, is obtained from the respective State’s RERA website. CommonFloor is an online platform, publishing info “As Is” available on RERA websites.</div>
+                              </i></div>
+                              <span class="rera_dls">
+                                PR/GJ/AHMEDABAD/DASKROI/A                              ...<span data-toggle="modal" data-target="#reraModal">Show More</span>
+                                            </span>
+                            </div>
+                                        <!-- RERA Modal -->
+                              <div id="reraModal" class="modal fade" role="dialog" aria-labelledby="reraModal">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <div class="rating-bar-header mdchh">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                      </button>
+                                      <div class="loginc">RERA ID</div>
+                                    </div>
+                                    <div class="modal-body">
+                                      <ul class="rera-popup">
+                                                            <li>PR/GJ/AHMEDABAD/DASKROI/AUDA/MAA00371/071017</li>
+                                                          </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- RERA Modal -->
+                                            </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+            </div> {% endcomment %}
+            {% comment %} <div class="feature-bg"> {% endcomment %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="featured-text">
+                                <h2 class="pb-3">Gallery <span class="orange-text"></span></h2>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 mb-4 mb-md-5">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-shipping-fast"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>BHK</h3>
+                                                <p>1, 2 BHK  </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>Possession</h3>
+                                                <p>Jun-2021   <i>(Ready-to-move)</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-briefcase"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>Area</h3>
+                                                <p><div>
+                                                    603 - 972 sq.ft. 
+                                                      <a class="area-converter-icon" href="/area-converter">
+                                                        <img loading="lazy" width="14" height="14" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAABHNCSVQICAgIfAhkiAAABA1JREFUWIXNWV1uGkkQ/qqGH2HW0vgEHgsjHk1OsHCC5QbAeyR79gLOCbbx7r7bOUHiE0BOEPbRIo6GE4CEsL0wXbUPhogAaw8Nsv1JSPRQ1f1RNVXV1U1Yg5EpVDyP6ypaAVGwTmbXIEUXjK61cr0f3n5e+X1xMDClIOvZS1WqQHVIoM9Wpf8SRJlwQqCyEgVQjSY6rR6E/WiF6MAUy2nSNgGAUpgPe1cvQXAZY1NsEOm5Aj6Uqvmw1/1BdGBKQZrsVwaGpNNqbuGfvAbuTSlQsm0F/IlO3x2E/YgBIEO2/VZIAkAuvIlIvSoAZL30JQDQyBRqzPwJguZrufv/MDbFBhiXIlJlz+PfSDV6ayQBIB/2rqA69IjrKRGUSeifpMr35jDYlsADMDwI+8Mksiq4BmslRYSykFw/pzBPXaJU2ZZoBsC4dbySgtYSJY2IuJ5KOnnWk3OJ0c/T5IASWuMpjP44amVT6UsA1STyiYmqaI2IqrsgCQApyrREbDuxfOKZify9VDwAFiqYINiEHDGif+20+Zy71yE50UUlnZyppIeitrmJHsXUyHLmHMBGeoAjUYLnQ+Pr/fB7ZxO9kSlUADp0WZNdlF4DThZV0og9ro9MIdhEz/PoV43jxDl7EU5EY8Qtjtn3OLWRG62VL7+QtFzWdCI6qypnLrqu2Pod3UVJTYKtiQql2/r3kVMkbwIn1wPzVIMKAP9ugnBkCp3lXmdsig2BBAuPOvvhbcdlvZ2lJwb7y88EspNyC2xh0ZllOuPWcX0vA0PveytN4MzCKx2lC5yJzrGn03f0fjcblaewtet3tZt6Ds4WvTOFmsWjewemFGQgleV25u6v0ilUyvOxtfLRNZiciSo4YtL22BTLIFuH6sdlGRvHfQAH8zGDna3vTDQf9rojU2gy0ydYus7//u3DssybCKaBKQVM1pDiSllr9xfFeu6095NVR6ZQUXAwH1tMOi6bZmCLYMpAKqpysXfWa0KpGoscrRGreKT1+SeLVHmNTCJs4/qrhe9dAN1lmf3w9oPr/MtIblHVnaYhgaxUsqeQnCij+yC8k63dwBz65OGUQJ2kOoldz9ZrKtn2+KK4E7Iq2mGdJm7yUlCNPOJnt2m58CYCcKTm0H8ANnLb+vmSRT97OCFBN6WCL2CtIWELOyuZL1I2AQBCZQAdVtIrEPljU2y82OIJMTbFBogCq3JNADD+87gNQXl+uvvK/AA8FpQM2TYB2Dv7dsTAY6AAQIbS7cEL9UBPYU4SgE86rQKz9JQLbyIoVQH4GUq3X/M1GJtiI032K2aXDfOg++n65sch/+wKhZm7sbVOBwabwvP4UB5PDH3oY+rKrbu+WcTIFGqkVAPrCRE71+eNoBoRqGN1/Z71P+b32bxVp36JAAAAAElFTkSuQmCC">
+                                                        <p>Change your area measurement</p>
+                                                      </a>
+                                                  </div>
+                                                  <small class="smtext">(56.02 - 90.3 sq.m)</small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>Price Range </h3>
+                                                <p>
+                                                    <i class="icon-info"><div class="pricebrk">Onwards*</div></i>              </small>
+                                                  <span><i class="icon-inr"></i> 13.86 L  - 22.35 L </span>
+                                                </li>
+                                                           <li></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>Launched Date</h3>
+                                                <p>Oct-2017</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="list-box d-flex">
+                                            {% comment %} <div class="list-icon">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </div> {% endcomment %}
+                                            <div class="content">
+                                                <h3>Property Type</h3>
+                                                <p>Apartment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            {%load static %}
+                            <div class="featured-text">
+                                <h2 class="pb-3"> <span class="orange-text"></span></h2>
+                                <div class="row">
+                                   
+                                    
+                                    
+                                    
+                                    <img src="{%static 'member/assets/images/new1.jpg' %}" alt='not found'/>
+                                    
+                                </div>
+                            </div>
+                          
+                        </div>
+                    {% comment %} </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}

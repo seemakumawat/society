@@ -1,0 +1,836 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+your profile
+{%endblock%}
+{% block mdemo%}
+
+<div class="row">
+              
+  <div class="col-md-12">
+    <div class="card">
+                    <form  action='/editmmember/{{members.member_id}}/' enctype='multipart/form-data' class="form-horizontal">
+                      {% csrf_token %}
+                      <div class="card-body">
+                        <h2 class="card-title" align='center'>Edit Profile</h2>
+                      <div class="form-group row">
+                        <label
+                          for="fname"
+                          class="col-sm-3 text-end control-label col-form-label"
+                          >Name</label
+                        >
+                        <div class="col-sm-9">
+                          
+                            <input
+                            type='text' 
+                            name='txtname' 
+                            value='{{members.name}}'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              
+                              
+                            />
+                            
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="fname"
+                            class="col-sm-3 text-end control-label col-form-label"
+                            > DOB</label
+                          >
+                          <div class="col-sm-9">
+                            <input
+                            type='text' 
+                            name='dob' 
+                              class="form-control"
+                              id="fname"
+                              placeholder="Enter your name"
+                              value='{{members.date_of_birth}}'
+                              
+                         />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="lname"
+                            class="col-sm-3 text-end control-label col-form-label"
+                            >    email
+                            </label
+                          >
+                          <div class="col-sm-9">
+                            <input
+                            type='email' 
+                            name='txtemail'
+                              class="form-control"
+                              id="lname"
+                              placeholder="email"
+                              value='{{members.email}}'
+                              
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label
+                            for="lname"
+                            class="col-sm-3 text-end control-label col-form-label"
+                            >Password</label
+                          >
+                          <div class="col-sm-9">
+                            <input
+                            type='password'
+                            name='txtps'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              value='{{members.password}}'
+                              
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Contact no</label
+                            >
+                            <div class="col-sm-9">
+                              <input
+                              type='phone' 
+                              pattern='[0-9]{10}' 
+                              maxlength='10' 
+                              name='con'
+                                class="form-control"
+                                id="lname"
+                                placeholder=""
+                                value='{{members.contact_no_field}}'
+                                
+                              />
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Flat no</label
+                            >
+                            <div class="col-sm-9">
+                              <input
+                              type='number' 
+                              name='txtfn'
+                                class="form-control"
+                                id="lname"
+                                placeholder=""
+                                maximum='150'
+                                value='{{members.flat_no_field}}'
+                                
+                              />
+                            </div>
+                          </div>
+                          {% comment %} <div class="form-group row"> {% endcomment %}
+                            {% comment %} <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Block no</label
+                            > {% endcomment %}
+                            
+                              
+                            {% comment %} <select name='txtbn'
+                              class="select2 form-select shadow-none"
+                              style="width: 100%; height: 36px">
+                              
+                              {% if members == members.block_no_field%}
+                                  <option value='{{members.block_no_field}}' selected>{{members.block_no_field}}</option>
+                                {% endif%}
+                                    <option value='A' >A</option>
+                                    <option value='B' >B</option>
+                                    <option value='C' >C</option>
+                                    
+                                  
+                             
+                            </select> {% endcomment %}
+                            <div class="form-group row">
+                              <label
+                                for="lname"
+                                class="col-sm-3 text-end control-label col-form-label"
+                                >Block </label
+                              >
+                              <div class="col-md-9"> 
+                                  {% if members.block_no_field == 'A'%}
+                                    <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >A</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >B</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >C</label
+                                    >
+                                  </div>
+                                  {%elif members.block_no_field == 'B'%}
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >A</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >B</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >C</label
+                                    >
+                                  </div>
+                                   {%else%}
+                                   <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >A</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >B</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="block"
+                                      value='{{members.block_no_field}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >C</label
+                                    >
+                                  </div> 
+                                  {%endif%}
+                            </div>
+                          </div>
+                            
+                         
+                            
+                              {% comment %} <div class="form-group row"> {% endcomment %}
+                                {% comment %} <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Gender</label
+                            > {% endcomment %}
+                            
+                            {% comment %} <div class="col-md-9">   
+                              {% if members.gender == 'male'%}
+                              <div class="form-check">
+                                
+                                    <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    id="customControlValidation1"
+                                    name="gender"
+                                    value={{members.gender}}
+                                    readonly
+                                    checked
+                                   
+                               
+                                    />
+                                    <label
+                                    class="form-check-label mb-0"
+                                    for="customControlValidation1"
+                                    >male</label
+                                    >
+                                </div>
+                                <div class="form-check">
+                                <input
+                                type="radio"
+                                class="form-check-input"
+                                id="customControlValidation2"
+                                name="gender"
+                                
+                                value={{members.gender}}
+                                readonly
+                                />
+                                <label
+                                class="form-check-label mb-0"
+                                for="customControlValidation2"
+                                >female</label
+                                ></div>
+                                
+                              {% elif members.gender == 'female'%}
+                              <div class="form-check">
+                                
+                                    <input
+                                    type="radio"
+                                    class="form-check-input"
+                                    id="customControlValidation1"
+                                    name="gender"
+                                    value={{members.gender}}
+                                
+                                    readonly
+                               
+                                    />
+                                    <label
+                                    class="form-check-label mb-0"
+                                    for="customControlValidation1"
+                                    >male</label
+                                    >
+                                </div>
+                                <div class="form-check">
+                                <input
+                                type="radio"
+                                class="form-check-input"
+                                id="customControlValidation2"
+                                name="gender"
+                                
+                                value={{members.gender}}
+                                readonly
+                               checked
+                                />
+                                <label
+                                class="form-check-label mb-0"
+                                for="customControlValidation2"
+                                >female</label
+                                ></div>
+                                
+                                {%else %}
+                                
+                                <div class="form-check">
+                                
+                                  <input
+                                  type="radio"
+                                  class="form-check-input"
+                                  id="customControlValidation1"
+                                  name="gender"
+                                  value={{members.gender}}
+                                  readonly
+                                  
+                             
+                                  />
+                                  <label
+                                  class="form-check-label mb-0"
+                                  for="customControlValidation1"
+                                  >male</label
+                                  >
+                              </div>
+                              <div class="form-check">
+                              <input
+                              type="radio"
+                              class="form-check-input"
+                              id="customControlValidation2"
+                              name="gender"
+                              
+                              value={{members.gender}}
+                              readonly
+                              />
+                              <label
+                              class="form-check-label mb-0"
+                              for="customControlValidation2"
+                              >female</label
+                              ></div>
+                          
+                                   
+                              {%endif%}
+                              </div>
+                              
+                            </div> {% endcomment %}
+                            <div class="form-group row">
+                              <label
+                                for="lname"
+                                class="col-sm-3 text-end control-label col-form-label"
+                                >Gender</label
+                              >
+                              
+                                
+                                <div class="col-md-9">   
+                                  
+                                    {% if members.gender == 'male'%}
+                                    <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="gender"
+                                      value='{{members.gender}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >male</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="gender"
+                                      value='{{members.gender}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >female</label
+                                    >
+                                  </div>
+                                  {%else%}
+                                  <div class="form-check">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation1"
+                                        name="gender"
+                                        value='{{members.gender}}'
+                                        
+                                      />
+                                      <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation1"
+                                        >male</label
+                                      >
+                                    </div>
+                                    <div class="form-check">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation2"
+                                        name="gender"
+                                        value='{{members.gender}}'
+                                        checked
+                                      />
+                                      <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation2"
+                                        >female</label
+                                      >
+                                    </div>
+                                    
+                                  
+                                </div>
+                                {%endif%}
+                                    {% comment %} <input
+                                type='text' 
+                                name='txtreligion'
+                                  class="form-control"
+                                  id="lname"
+                                  placeholder=""
+                                  value='{{members.gender}}'
+                                  
+                                /> {% endcomment %}
+                              </div>
+                            </div> 
+
+                          {% comment %} </div> {% endcomment %}
+                          <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Religion</label
+                            >
+                            <div class="col-sm-9">
+                              <input
+                              type='text' 
+                              name='txtreligion'
+                                class="form-control"
+                                id="lname"
+                                placeholder=""
+                                value='{{members.religion}}'
+                                
+                              />
+                            </div>
+                          </div>
+                          
+                            <div class="form-group row">
+                              <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >House status</label
+                              >
+                            
+                              
+                              <div class="col-md-9">   
+                              {% comment %} <select name='txths'
+                              class="select2 form-select shadow-none"
+                              style="width: 100%; height: 36px">
+                              
+                                {% if members == members.house_status%}
+                                  <option value='{{members.house_status}}' selected>{{members.house_status}}</option>
+                                  {%endif%} 
+                                  <option value='own' selected>own</option>
+                                  <option value='rent'selected>rent</option>
+                               
+                                 
+                                    </select> {% endcomment %}
+                         
+                                  
+                                    {% if members.house_status == 'own'%}
+                                    <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="hstatus"
+                                      value='{{members.house_status}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >own</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="hstatus"
+                                      value='{{members.house_status}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >rent</label
+                                    >
+                                  </div>
+                                  {%else%}
+                                  <div class="form-check">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation1"
+                                        name="hstatus"
+                                        value='{{members.house_status}}'
+                                        
+                                      />
+                                      <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation1"
+                                        >own</label
+                                      >
+                                    </div>
+                                    <div class="form-check">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation2"
+                                        name="hstatus"
+                                        value='{{members.house_status}}'
+                                        checked
+                                      />
+                                      <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation2"
+                                        >rent</label
+                                      >
+                                    </div>
+                                    
+                                  
+                                </div>
+                                {%endif%}
+                                    {% comment %} <input
+                                type='text' 
+                                name='txtreligion'
+                                  class="form-control"
+                                  id="lname"
+                                  placeholder=""
+                                  value='{{members.gender}}'
+                                  
+                                /> {% endcomment %}
+                            </div>
+                            
+                            <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Member status</label
+                            >
+                            <div class="col-sm-9">
+                              {% comment %} <select name='txtms'
+                              class="select2 form-select shadow-none"
+                              style="width: 100%; height: 36px">
+                                 <option value='Active'>Active</option>
+                                 <option value='Inactive'>Inactive</option>
+                            </select> {% endcomment %}
+                            {% if members.member_status == 'active' or members.member_status == 'Active'%}
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation1"
+                                      name="mstatus"
+                                      value='{{members.member_status}}'
+                                      checked
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation1"
+                                      >active</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                    <input
+                                      type="radio"
+                                      class="form-check-input"
+                                      id="customControlValidation2"
+                                      name="mstatus"
+                                      value='{{members.member_status}}'
+                                      
+                                    />
+                                    <label
+                                      class="form-check-label mb-0"
+                                      for="customControlValidation2"
+                                      >inactive</label
+                                    >
+                                  </div>
+                                  {%else%}
+                                  <div class="form-check">
+                                    <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation1"
+                                        name="mstatus"
+                                        value='{{members.member_status}}'
+                                        
+                                    />
+                                    <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation1"
+                                      >active</label
+                                    >
+                                  </div>
+                                  <div class="form-check">
+                                      <input
+                                        type="radio"
+                                        class="form-check-input"
+                                        id="customControlValidation2"
+                                        name="mstatus"
+                                        value='{{members.member_status}}'
+                                        checked
+                                      />
+                                      <label
+                                        class="form-check-label mb-0"
+                                        for="customControlValidation2"
+                                        >inactive</label
+                                      >
+                                    </div>
+                                    
+                                  
+                               
+                                {%endif%}
+                                    {% comment %} <input
+                                type='text' 
+                                name='txtreligion'
+                                  class="form-control"
+                                  id="lname"
+                                  placeholder=""
+                                  value='{{members.gender}}'
+                                  
+                                /> {% endcomment %}
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                                <label
+                                for="lname"
+                                class="col-sm-3 text-end control-label col-form-label"
+                                >Comming date</label
+                                >
+                                <div class="col-sm-9">
+                                <input
+                                type='text' 
+                                name='cdate'
+                                    class="form-control"
+                                    id="lname"
+                                    placeholder=""
+                                    value='{{members.comming_date}}'
+                                    
+                                />
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Leving date</label
+                            >
+                            <div class="col-sm-9">
+                              <input
+                              type='text' 
+                              name='ldate'
+                                class="form-control"
+                                id="lname"
+                                placeholder=""
+                                value='{{members.leaving_date}}'
+                                
+                              />
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >family members</label
+                            >
+                            <div class="col-sm-9">
+                              <input
+                              type='number' 
+                              name='txtfm'
+                                class="form-control"
+                                id="lname"
+                                placeholder=""
+                                value='{{members.family_member}}'
+                                
+                              />
+                            </div>
+                            </div> 
+                            <div class="form-group row">
+                            <label
+                              for="lname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              >Profile</label
+                            >
+                             <div class="col-sm-9">
+                              
+                              <img name='profile' src='{{members.profile}}' height='60%' width='60%'  >
+                              <input type='file' name='pr' >
+                            </div>
+                            </div>
+                          </div>
+                          <div class="border-top">
+                        <div class="card-body">
+                          <center><button type="submit" class="btn btn-primary">
+                            <i class="me-2 mdi mdi-border-color"> update</i>
+                          </button>&nbsp;
+                            {% comment %} <button class="btn btn-primary">
+                              <i class="me-2 mdi mdi-delete">
+                                <a href='/deletemember/{{members.member_id}}/' 
+                                onclick="return confirm ('Do you want to delete this row?')" 
+                                style="color:white">Delete 
+                              </i></a> </button>&nbsp; {% endcomment %}
+                            <button class="btn btn-primary">
+                              <i class="me-2 mdi mdi-arrow-left">
+                                <a href="/mmember/" 
+                                style="color:white">Back 
+                              </i></a>
+                            </button> &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                            Reset
+                            </i>
+                          </button>
+                         
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+            {%comment%}<form id="request" class="main_form">
+                <div class="row">
+                   <div class="col-md-12 ">
+                      <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                   </div>
+                   <div class="col-md-12">
+                      <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                   </div>
+                   <div class="col-md-12">
+                      <button class="send_btn">Send</button>
+                   </div>{%endcomment%}
+                </div>
+             </form>
+{% endblock%}
+            

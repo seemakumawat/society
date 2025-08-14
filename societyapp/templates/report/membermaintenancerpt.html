@@ -1,0 +1,64 @@
+<h1 align='center'>Paid maintenance</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Member maintenance id</h4></th>
+            <th class="card-title"><h4>Maintenance</h4></th>
+            <th class="card-title"><h4>Member</h4></th>
+            <th class="card-title"><h4>Pay date</h4></th>
+            <th class="card-title"><h4>Amount</h4></th>
+            <th class="card-title"><h4>Late charges</h4></th>
+            <th class="card-title"><h4>Total</h4></th>
+            {% comment %} <th class="card-title"><h4>Show all detail</h4></th> {% endcomment %}
+            
+
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for membermaintenance  in membermaintenances%}
+            <tr>
+                <td><h5>{{membermaintenance.member_maintenance_id}}</h5></td>
+                <td><h5>{{membermaintenance.maintenance.month_year}}</h5></td>
+                <td><h5>{{membermaintenance.member.name}}</h5></td>
+                <td><h5>{{membermaintenance.pay_date}}</h5></td>
+                <td><h5>{{membermaintenance.amount}}</h5></td>
+                <td><h5>{{membermaintenance.late_charges}}</h5></td>
+                <td><h5>{{membermaintenance.total}}</h5></td>
+                
+                {% comment %} <td><a href='/editmembermaintenance/{{membermaintenance.member_maintenance_id}}/' class="me-2 mdi mdi-eye-outline">show all detail</a></td> {% endcomment %}
+            </tr>
+            {% endfor%}
+            <tr><td colspan='6'>Total Amount</td><td><h5>{{amt}}</h5></td></tr>
+        </tbody>
+</table><br>
+<br>
+<h1 align='center'>Unpaid maintenance</h1>
+
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4> Member Name </h4></th>
+            <th class="card-title"><h4>Email </h4></th>
+            <th class="card-title"><h4>Mobile no. </h4></th>
+            <th class="card-title"><h4>Flat  </h4></th>
+            <th class="card-title"><h4>Block  </h4></th>
+            <th class="card-title"><h4>Member status </h4></th>
+            <th class="card-title"><h4> Profile </h4></th>
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for l in lst1%}
+            <tr>
+                <td>{{l.name}}</td>
+                <td>{{l.email}}</td>
+                <td>{{l.contact_no_field}}</td>
+                <td>{{l.flat_no_field}}</td>
+                <td>{{l.block_no_field}}</td>
+                <td>{{l.member_status}}</td>
+                <td><img src='{{l.profile}}' style='width:30%;height:50px'/></td>
+            </tr>
+            {% endfor%}
+        </tbody>
+</table>

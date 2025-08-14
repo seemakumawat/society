@@ -1,0 +1,100 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+Enter booking detail
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addmbookingdetail/{{bookingdetails.booking_detail_id}}/' method='post' class="form-horizontal">
+            {% csrf_token %}
+              <div class="card-body">
+              <h2 class="card-title" align='center'>Add new bookingdetail</h2>
+              <div class="form-group row">
+              <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >booking</label
+                >
+                
+                <div class="col-sm-9">
+                    <select name='bname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for booking in bookings%}
+                        <option value='{{booking.booking_id}}'>{{booking.event_name}}</option>
+                    {%endfor%}
+                    </select>
+                </div>
+               </div>
+                
+              
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >item</label
+                >
+                <div class="col-sm-9">
+                    <select name='iname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for item in items%}
+                    <option value='{{item.item_id}}'>{{item.item_name}}</option>
+                    {%endfor%}
+                 </select>
+                  </div>
+              </div>
+                
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >quantity</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                  name='qt'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                   
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >amount</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='number' 
+                      name='amt'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                    />
+                  </div>
+                </div>
+          
+            </div>
+            <div class="border-top">
+                <div class="card-body">
+                  <center>
+                  <button type="submit" class="btn btn-primary">
+                    Submit
+                  </button></center>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+  </div>
+  {% endblock%}

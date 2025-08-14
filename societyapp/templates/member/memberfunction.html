@@ -1,0 +1,48 @@
+{% extends "member/mindex.html" %}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    <th class="card-title">Member function id</th>
+                    <th class="card-title">Function</th>
+                    <th class="card-title">Member</th>
+                    <th class="card-title">Amount</th>
+                    <th class="card-title">Pay date</th>
+                    <th class="card-title">No. of pass</th>
+                    <th class="card-title">Show all detail</th>
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for memberfunction  in memberfunctions%}
+                    <tr>
+                        <td>{{memberfunction.member_function_id}}</td>
+                        <td>{{memberfunction.function.function_name}}</td>
+                        <td>{{memberfunction.member.name}}</td>
+                        <td>{{memberfunction.amount}}</td>
+                        <td>{{memberfunction.pay_date}}</td>
+                        <td>{{memberfunction.no_of_pass}}</td>
+    
+                        <td><a href='/editmmemberfunction/{{memberfunction.member_function_id}}/' class="me-2 mdi mdi-eye-outline">show all detail</a></td>
+                        
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table><center>
+            <button class="btn btn-primary">
+              <i class="me-2 mdi mdi-arrow-left">
+                <a href='/function/' 
+                style="color:white">Back
+              </i></a>
+            </button></center>
+            
+            
+              </div>
+            </div>
+    {% endblock %}

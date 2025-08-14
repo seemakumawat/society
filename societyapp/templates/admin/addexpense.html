@@ -1,0 +1,161 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addexpense/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Add new expense</h3></h2>
+            
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Expense type</h4></label
+              >
+              <div class="col-md-9">
+                {% comment %} <div class="col-sm-9"> {% endcomment %}
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation1"
+                    name="etype"
+                    value='function'
+                    required
+                  />
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation1"
+                    ><h4>Function</h4></label
+                  >
+                  <select name='fn'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  {%for function in functions%}
+                    
+                      <option value='{{function.function_id}}' >{{function.function_name}}</option>
+                    
+                  {%endfor%}
+               </select>
+              {% comment %} </div> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+             
+              <div class="col-md-9">
+                {% comment %} <div class="col-sm-9"> {% endcomment %}
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation1"
+                    name="etype"
+                    value='other'
+                    required
+                  />
+                </div>
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation1"
+                    ><h4>Other</h4></label
+                  >
+                  <select name='ot'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  {%for other in others%}
+                    
+                    
+                    <option value='{{other}}' >{{other}}</option>
+                 
+                  {%endfor%}
+               </select>
+              {% comment %} </div> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+              <div class="col-md-9">
+                {% comment %} <div class="col-sm-9"> {% endcomment %}
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation1"
+                    name="etype"
+                    value='both'
+                    required
+                  />
+                </div>
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation1"
+                    ><h4>Both</h4></label
+                  >
+                  <select name='bfn'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  {%for function in functions%}
+                    
+                      <option value='{{function.function_id}}' >{{function.function_name}}</option>
+                    
+                  {%endfor%}
+               </select>
+              
+               <input
+               type='text' 
+               name='bdesc'
+                 class="form-control"
+                 id="lname"
+                 placeholder="discription"
+                 required
+               />
+              </div>
+              
+             
+           
+            
+        </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='dt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  required
+                />
+              </div>
+            </div>
+           
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='amt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  required
+                />
+              </div>
+            </div>
+            
+           
+          <div class="border-top">
+            <div class="card-body">
+            <center> <button type="submit" class="btn btn-primary" onclick='alert("Expense added succefully")'>
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,160 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addmaintenance/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Add new maintenance</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                > <h4>month_year</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='month' 
+                name='month' 
+                  class="form-control"
+                  id="fname"
+                  placeholder="Month/year"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >   <h4> total_income </h4>
+                </label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number'
+                 name='txtincome'
+                  class="form-control"
+                  id="lname"
+                  placeholder="income"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>total_expence</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='txtexpense'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>amount_required</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                  name='txtramount'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>no_of_member</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                  name='txtmem'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>maintenance_amount</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                  name='txtmamount'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>last_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='text' 
+                  name='txtdate'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>late_charges</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                  name='txtcharge'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                  />
+                </div>
+              </div>
+            </div>
+          <div class="border-top">
+            <div class="card-body">
+            <center><button type="submit" class="btn btn-primary" onclick='alert("Maintenance added succefully")'>
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,128 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+Enter detail fro function
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addmmemberfunction/{{memberfunctions.member_function_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+            <h2 class="card-title" align='center'>add memberfunction</h2>
+            <div class="form-group row">
+            <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >function</label
+            >
+            <div class="col-sm-9">
+                
+                <select name='fname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                {%for function in functions%}
+                <option value='{{function.function_id}}'>{{function.function_name}}</option>
+                {%endfor%}
+                </select>
+            </div>
+        </div>
+
+              <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >member</label
+                >
+              <div class="col-sm-9">
+                
+                    <select name='mname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for member in members%}
+                    <option value='{{member.member_id}}'>{{member.name}}</option>
+                    {%endfor%}
+                    </select>
+                  </div>
+                {% comment %} <select name='txtfid'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px"> {% endcomment %}
+                
+                 
+                     
+                      
+                       
+              
+            </div>
+            
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >amount</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number'
+                 name='txtamount' 
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >pay date</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='txtdate'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >no of pass</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                    name='txtpass'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                  />
+                </div>
+              </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+  {% endblock%}
+  
+    
+    
+    

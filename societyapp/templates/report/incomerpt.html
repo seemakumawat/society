@@ -1,0 +1,35 @@
+<h1 align='center'>Income
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Income id</h4></th>
+            <th class="card-title"><h4>Member maintenance</h4></th>
+            <th class="card-title"><h4>Deposit</h4></th>
+            <th class="card-title"><h4>Booking</h4></th>
+            <th class="card-title"><h4>Society event fund</h4></th>
+            <th class="card-title"><h4>Date</h4></th>
+            <th class="card-title"><h4>Amount</h4></th>
+            
+            {% comment %} <th class="card-title"><h4>Edit</h4></th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for income  in incomes%}
+            <tr>
+                <td><h5>{{income.income_id}}</h5></td>
+                <td><h5>{{income.member_maintenance.maintenance.month_year}}</h5></td>
+                <td><h5>{{income.deposit.description}}</h5></td>
+                <td><h5>{{income.booking.event_name}}</h5></td>
+                <td><h5>{{income.society_event_fund}}</h5></td>
+                <td><h5>{{income.date}}</h5></td>
+                <td><h5>{{income.amount}}</h5></td>
+                
+                {% comment %} <td><a href='/editincome/{{income.income_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+            </tr>
+            {% endfor%}
+            <tr><td colspan='6'>Total Income</td><td ><h5>{{amt}}</h5></td></tr>
+        </tbody>
+    </table>

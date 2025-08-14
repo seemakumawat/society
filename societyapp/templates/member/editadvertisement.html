@@ -1,0 +1,151 @@
+{% extends "member/mindex.html"  %}
+{%block hdemo%}
+edit your advertisement
+{%endblock%}
+{%  block mdemo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editmadvertisement/{{advertisement.advertise_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" align='center'>Edit advertisement</h2>            
+              <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >member</label
+              >
+              <div class="col-sm-9">
+            
+                {%for member in members%}
+                    {%if member == advertisement.member%}
+                    <input
+                          type='text'
+                          name='nmn' 
+                            class="form-control"
+                            id="lname"
+                            placeholder="place"
+                            value="{{member.name}}"
+                        
+                            readonly
+                          />&nbsp;
+                        <input
+                          type='text'
+                          name='nm' 
+                            class="form-control"
+                            id="lname"
+                            placeholder="place"
+                            value="{{member.member_id}}"
+                            text="{{member.name}}"
+                            readonly
+                          />
+                          
+                        {% comment %} <option value='{{member.member_id}}' selected  readonly>{{member.name}}</option> {% endcomment %}
+                     {% comment %} {%else%}
+                        <option value='{{member.member_id}}' >{{member.name}}</option> {% endcomment %}
+                    {% endif %}
+                {%endfor%} 
+            </select>
+             {% comment %} <input
+                type='text'
+                 name='txtname' 
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{member.name}}"
+                  readonly
+                /> {% endcomment %}
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >date</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='dt' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{advertisement.date}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >description</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='desc'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{advertisement.description}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >status</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='text' 
+                    name='st'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{advertisement.status}}"
+                    
+                  />
+                </div>
+            </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-delete">
+                    <a href='/deleteadvertisement/{{advertisement.advertise_id}}/' 
+                    onclick="return confirm ('Do you want to delete this row?')" 
+                    style="color:white">Delete 
+                  </i></a>
+                </button>
+                &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                  Reset
+                  </i>
+                </button>  &nbsp;
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href='/madvertisement/' 
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                
+                      
+                      
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

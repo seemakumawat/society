@@ -1,0 +1,53 @@
+{% extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Society</span> Maintenance</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                <th class="product-total">maintenance</th>
+                                <th class="product-total">member</th>
+                                <th class="product-total">pay_date</th>
+                                <th class="product-total">Amount </th>
+                                <th class="product-total">late_charges</th>
+                                <th class="product-total">total</th>
+                               
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for maintenance in maintenances%}
+                            <tr>
+                               
+                                <td class="product-total">{{maintenance.maintenance.month_year}}</td>
+                                <td class="product-total">{{maintenance.member.name}}</td>
+                               
+                                <td class="product-total">{{maintenance.pay_date}}</td>
+                                <td class="product-total">{{maintenance.amount}}</td>
+                                <td class="product-total">{{maintenance.late_charges}}</td>
+                                <td class="product-total">{{maintenance.total}}</td>
+                                
+                            </tr>
+                    {% endfor%}
+                        </tbody>
+                    </table>
+                    <br>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

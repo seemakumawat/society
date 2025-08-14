@@ -1,0 +1,15 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<form method='POST' action='/noticerpt/'>
+    {% csrf_token %}
+    <select name='search'
+              >
+                {%for committee in committees%}
+                    <option value="{{committee.work_of_committee}}">{{committee.work_of_committee}}</option>
+                {%endfor%}
+    </select>
+    <input type='submit' value='search by committee' name='sbb'>
+&nbsp;
+</form>
+{%endblock%}

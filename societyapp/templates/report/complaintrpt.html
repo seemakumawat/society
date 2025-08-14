@@ -1,0 +1,32 @@
+<h1 align='center'>Complaint
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Complaint id</h4></th>
+            <th class="card-title"><h4>Member</h4></th>
+            <th class="card-title"><h4>Description</h4></th>
+            <th class="card-title"><h4>Complaint date</h4></th>
+            <th class="card-title"><h4>Status</h4></th>
+            <th class="card-title"><h4>Committee detail</h4></th>
+            {% comment %} <th class="card-title"><h4>Edit</h4></th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for complaint  in complaints%}
+            <tr>
+                <td><h5>{{complaint.complaint_id}}</h5></td>
+                <td><h5>{{complaint.member.name}}</h5></td>
+                <td><h5>{{complaint.description}}</h5></td>
+                <td><h5>{{complaint.complaint_date}}</h5></td>
+                <td><h5>{{complaint.status}}</h5></td>
+                <td><h5>{{complaint.committee_detail.committee.work_of_committee}}</h5></td>
+                {% comment %} <td><a href='/editcomplaint/{{complaint.complaint_id}}/' > <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+        

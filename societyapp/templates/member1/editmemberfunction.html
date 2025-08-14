@@ -1,0 +1,67 @@
+{% extends "member1/index.html" %}
+{%block demo%}
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="checkout-accordion-wrap">
+            <div class="accordion" id="accordionExample">
+              <div class="card single-accordion">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Function
+                    </button>
+                  </h5>
+                </div>
+  
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    
+                    <div class="billing-address-form">
+                        <form action='/editmmemberfunction/{{memberfunctions.function_id}}/' method='post'>
+                            {% csrf_token%}
+                            <p>
+                                {%for function in functions%}
+                                {% if function == memberfunctions.function %}
+                                <input  type='text'
+                                name='txtfunction' 
+                                value="{{function.function_name}}"
+                                readonly
+                                >
+                                {% endif %}
+                                {%endfor%}</p>
+                            
+                            <p><input  type='number'
+                                name='txtamount' 
+                                value="{{memberfunctions.amount}}" readonly></p>
+                            
+                            {% comment %} <p><input  type='date' 
+                                name='txtdate'
+                                value="{{memberfunctions.pay_date | date:'Y-m-d'}}"    ></p> {% endcomment %}
+                            <p><input  type='number' 
+                                name='txtpass'
+                                value="{{memberfunctions.no_of_pass}}" ></p>
+                            
+                            <div><input type="submit" value="Update">&nbsp;
+                            {% comment %} <a href='/deletemoccupant/{{occupants.occupant_id}}/' class="cart-btn" onclick="return confirm ('Do you want to delete this row?')" ><input type="button" class="cart-btn" value="Delete"></a> {% endcomment %}
+                            <a href='/mmemberfunction/' class="cart-btn"  ><input type="button" class="cart-btn" value="Back"></a></div>
+                        </form>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+             
+              <div class="card single-accordion">
+                
+               
+                
+              </div>
+            </div>
+  
+        </div>
+    </div>
+  
+    
+  </div>
+{% endblock %}

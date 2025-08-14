@@ -1,0 +1,65 @@
+{% extends "member1/index.html" %}
+{%block demo%}
+<div class="row">
+  <div class="col-lg-8">
+      <div class="checkout-accordion-wrap">
+          <div class="accordion" id="accordionExample">
+            <div class="card single-accordion">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Profile   
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  
+                  <div class="billing-address-form">
+                      <form action='/addmoccupant/' enctype='multipart/form-data' method='post' align='center'>
+                          {% csrf_token%}
+                          {% comment %} <p><input  type='text' 
+                            name='txtname' 
+                            value='{{occupants.name}}'></p> {% endcomment %}
+                         
+                          <p><input  type='text' name='name' placeholder="name"></p>
+                          <p><input  type='text' name='txtreligion' placeholder="religion" ></p>
+                          <p><input  type='text' name='gender' placeholder="male/female" ></p>
+                          {% comment %} <p><input  type='radio' name='txtreligion' value='male' placeholder="religion" >male&nbsp;
+                          <input  type='radio' name='txtreligion'  value='female' placeholder="religion" >female</p> {% endcomment %}
+                          <p><input  type='date' name="cdt"  ></p>
+                          <p><input type='number' name='txtramount' placeholder="rent" ></p>
+                          <p><input type='number' name='txtno' placeholder="family member"></p>
+                          
+                         
+                          <p><input type="file" name="profile"></p>
+                          <div><input type="submit" value="Submit">&nbsp;
+                          
+                      </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            </div>
+           
+            <div class="card single-accordion">
+              
+             
+              
+            </div>
+          </div>
+
+      </div>
+      </div>
+      </div>
+
+
+
+
+  
+
+
+
+{% endblock %}

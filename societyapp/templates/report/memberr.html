@@ -1,0 +1,15 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<form method='POST' action='/memberrpt/'>
+    {% csrf_token %}
+    <select name='search' style='width:5%;height:20px'
+                >
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+    </select>
+    <input type='submit' value='search by block' name='sbb'>
+&nbsp;
+</form>
+{%endblock%}

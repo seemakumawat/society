@@ -1,0 +1,210 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editnotice/{{notices.notice_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Edit notice</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Committee</h4></label
+              >
+              <div class="col-sm-9">
+                <select name='txtcommittee'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                
+                {%for committee in committees%}
+                    {% if committee == notices.committee %}
+                        <option value="{{committee.committee_id}}" selected>{{committee.work_of_committee}}</option>
+                    {% else%}
+                        <option value="{{committee.committee_id}}">{{committee.work_of_committee}}</option>
+                    {% endif %}
+                {%endfor%}
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Description</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='desc' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{notices.description}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='dt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{notices.date|date:'Y-m-d'}}"
+                  required
+                />
+              </div>
+            </div>
+              
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Status</h4> </label
+              >
+              <div class="col-md-9"> 
+              
+                  {% if notices.status == 'active' %}
+                    <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='active'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >active</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='inactive'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >inactive</label
+                    >
+                  </div>
+                 
+                  {%elif notices.status == 'inactive' %}
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='active'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >active</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='inactive'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >inactive</label
+                    >
+                  </div>
+                  {%else%}
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="st"
+                      value='active'
+                      
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      >active</label
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation2"
+                      name="st"
+                      value='inactive'
+                      checked
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation2"
+                      >inactive</label
+                    >
+                  </div>
+            
+                  
+                  
+                  
+                  {%endif%}
+                 
+            </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-delete">
+                    <a href='//deletenotice/{{notices.notice_id}}/' 
+                    onclick="return confirm ('Do you want to delete this row?')" 
+                    style="color:white">Delete 
+                  </i></a>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/notice/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                      &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

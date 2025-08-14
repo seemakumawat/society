@@ -1,0 +1,180 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/occupantdetail/{{occupants.occupant_id}}/' method='post' enctype='multipart/form-data/' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" ><h3 align='center'>Occupant</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Member</h4> </labels
+              >
+              <div class="col-sm-9">
+                
+      {% for member in members%}
+        {%  if member == occupants.member%}
+          <input
+          type='text' 
+          name='txtname' 
+          value='{{member.name}}'
+            class="form-control"
+            id="lname"
+            placeholder="place"
+            
+            readonly
+          />
+          {%endif%}
+            {%endfor%}
+        </div>
+    </div>
+  
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          ><h4>Name</h4></label
+        >
+        <div class="col-sm-9">
+          <input
+          type='text' 
+          name='txtname' 
+          value='{{occupants.name}}'
+            class="form-control"
+            id="lname"
+            placeholder="place"
+            
+            readonly
+          />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          ><h4>Gender</h4></label
+        >
+        <div class="col-sm-9">
+          <input
+          type='text' name='txtgender' value='{{occupants.gender}}'
+            class="form-control"
+            id="lname"
+            placeholder="place"
+            
+            readonly
+          />
+        </div>
+    </div> 
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          > <h4>Religion</h4></label
+        >
+        <div class="col-sm-9">
+          <input
+          type='text' name='txtreligion' value='{{occupants.religion}}'
+            class="form-control"
+            id="lname"
+            placeholder="place"
+            
+            readonly
+          />
+        </div>
+    </div> 
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          > <h4>Comming date</h4></label
+        >
+        <div class="col-sm-9">
+          <input
+          type='text' name='txtcdate' value='{{occupants.comming_date}}'            class="form-control"
+            id="lname"
+            placeholder="place"
+            
+            readonly
+          />
+        </div>
+    </div> 
+     
+    <div class="form-group row">
+      <label
+        for="lname"
+        class="col-sm-3 text-end control-label col-form-label"
+        ><h4>Rent amount</h4></label
+      >
+      <div class="col-sm-9">
+        <input
+        type='text' 
+        name='txtname' 
+        value={{occupants.rent_amount}}
+          class="form-control"
+          id="lname"
+          placeholder="place"
+          
+          readonly
+        />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label
+        for="lname"
+        class="col-sm-3 text-end control-label col-form-label"
+        ><h4>family members</h4></label
+      >
+      <div class="col-sm-9">
+        <input
+        type='text' 
+        name='txtname' 
+        value={{occupants.no_of_family_member}}
+          class="form-control"
+          id="lname"
+          placeholder="place"
+          
+          readonly
+        />
+      </div>
+    </div>
+    
+    
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          ><h4></h4></label
+        >
+        <div class="col-sm-9">
+          <input
+          type='hidden' name='txtldate' value='{{occupants.leaving_date}}' readonly            
+          />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label
+          for="lname"
+          class="col-sm-3 text-end control-label col-form-label"
+          ><h4>Profile</h4></label
+        >
+        <div class="col-sm-9">
+          
+          <img src='{{occupants.profile}}' height='60' width='80'>
+        </div>
+    </div>
+    
+        </table>      
+        </form>
+        <center>
+            <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-arrow-left">
+                  <a href="/occupant/" 
+                  style="color:white">Back 
+                </i></a>
+              </button></center> 
+    
+{% endblock %}

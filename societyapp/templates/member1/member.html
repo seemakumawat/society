@@ -1,0 +1,57 @@
+{% extends "member1/index.html" %}
+{%block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="checkout-accordion-wrap">
+            <div class="accordion" id="accordionExample">
+              <div class="card single-accordion">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Profile   
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                    {% for member in members%}
+                    <div class="billing-address-form">
+                        <form action='/editmmember/{{member.member_id}}/' enctype='multipart/form-data' method='post' align='center'>
+                            {% csrf_token%}
+                            <p><input  value="{{member.name}}" type="text" name="txtname" ></p>
+                            <p><input  value="{{member.contact_no_field}}" type="number" name="con"></p>
+                            <p><input  value="{{member.date_of_birth |date:'Y-m-d'}}" type="date" name="dob"></p>
+                            <p><input  value="{{member.email}}" type="email" name="txtemail"></p>
+                            <p><input  value="{{member.password }}" type="password" name="txtps"></p>
+                            <p><img src="{{member.profile }}" type="file" name="pr" style="width:20%;height:100px"/></p>
+                           
+                            <p><input   type="file" name="profile"></p>
+                            <div><input type="submit" value="Update"></div>
+                    
+                    
+                        </form>
+                    </div>
+                    {%endfor%}
+                  </div>
+                </div>
+              </div>
+             
+              <div class="card single-accordion">
+                
+               
+                
+              </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+</div>
+
+         </div>
+      </div>
+      {% endblock %}

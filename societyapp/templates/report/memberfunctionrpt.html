@@ -1,0 +1,30 @@
+<h1 align='center'>Memberfunction</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Member function id</h4></th>
+            <th class="card-title"><h4>Function</h4></th>
+            <th class="card-title"><h4>Member</h4></th>
+            <th class="card-title"><h4>Amount</h4></th>
+            <th class="card-title"><h4>Pay date</h4></th>
+            <th class="card-title"><h4>No. of pass</h4></th>
+            {% comment %} <th class="card-title"><h4>Show all detail</h4></th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for memberfunction  in memberfunctions%}
+            <tr>
+                <td><h5>{{memberfunction.member_function_id}}</h5></td>
+                <td><h5>{{memberfunction.function.function_name}}</h5></td>
+                <td><h5>{{memberfunction.member.name}}</h5></td>
+                <td><h5>{{memberfunction.amount}}</h5></td>
+                <td><h5>{{memberfunction.pay_date}}</h5></td>
+                <td><h5>{{memberfunction.no_of_pass}}</h5></td>
+
+                {% comment %} <td><a href='/editmemberfunction/{{memberfunction.member_function_id}}/' class="me-2 mdi mdi-eye-outline">show all detail</a></td> {% endcomment %}
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>

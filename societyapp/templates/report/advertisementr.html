@@ -1,0 +1,23 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<form method='POST' action='/advertisementrpt/'>
+    {% csrf_token %}
+    {% comment %} <div class="form-group row"> {% endcomment %}
+    
+        {% comment %} <div class="col-sm-5"> {% endcomment %}
+          <input
+          type='text' 
+          name='search'
+            {% comment %} class="form-control" {% endcomment %}
+            id="lname"
+            placeholder="name"
+            
+          />
+          &nbsp;<input type='submit' value='search by member' name='sbb'>
+        {% comment %} </div> {% endcomment %}
+      {% comment %} </div> {% endcomment %}
+&nbsp;
+
+</form>
+{%endblock%}

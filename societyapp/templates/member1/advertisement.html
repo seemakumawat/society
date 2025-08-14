@@ -1,0 +1,54 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">My</span> Advertisement</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                <th class="product-total">date</th>
+                                <th class="product-total">description</th>
+                                <th class="product-total">status</th>
+                
+                <th class="product-total">edit</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for advertisement in advertisements%}
+                            <tr class="table-body-row">
+                               
+                    <td class="product-remove">{{advertisement.date}}</td>
+                    <td class="product-remove">{{advertisement.description}}</td>
+                    <td class="product-remove">{{advertisement.status}}</td>
+                    
+                    <td class="product-remove"><a href='/editmadvertisement/{{advertisement.advertise_id}}/'><i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                    
+                               
+                            </tr>
+                            {% endfor%}
+                           
+                        </tbody>
+                    </table><br>
+                    <center><a href='/addmadvertisement/'><button type="button" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Add new advertisement
+                        </i>
+                      </button></a></center> 
+                <br></div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

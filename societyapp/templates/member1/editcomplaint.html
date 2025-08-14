@@ -1,0 +1,50 @@
+{% extends "member1/index.html" %}
+{%block demo%}
+<div class="row">
+  <div class="col-lg-8">
+      <div class="checkout-accordion-wrap">
+          <div class="accordion" id="accordionExample">
+            <div class="card single-accordion">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Profile   
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  
+                  <div class="billing-address-form">
+                      <form  action='/editmcomplaint/{{complaint.complaint_id}}/' enctype='multipart/form-data' method='post' align='center'>
+                          {% csrf_token%}
+                         
+                          <p><input  type='date'  name='dt'  value="{{complaint.complaint_date|date:'Y-m-d'}}"  ></p>
+                          <p><input type='text' name='desc' value="{{complaint.description}}"></p>
+                          
+                          <div><input type="submit" value="Update"></div>&nbsp;
+                         
+                  
+                      </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+           
+            <div class="card single-accordion">
+              
+             
+              
+            </div>
+          </div>
+
+      </div>
+  </div>
+
+  
+</div>
+
+
+{% endblock %}

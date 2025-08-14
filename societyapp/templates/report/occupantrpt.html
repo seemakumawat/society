@@ -1,0 +1,41 @@
+<h1 align='center'>Occupant
+   
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Id</h4></th>
+            <th class="card-title"><h4>Member</h4></th>
+            <th class="card-title"><h4>Name</h4></th>   
+            <th class="card-title"><h4>Flat no</h4></th>   
+            <th class="card-title"><h4>Block no</h4></th>   
+            <th class="card-title"><h4>Gender</h4></th>
+            <th class="card-title"><h4>Religion</h4></th>
+            <th class="card-title"><h4>Comming date</h4></th>
+            <th class="card-title"><h4>Profile</h4></th>
+            {% comment %} <th class="card-title"><h4>show all detail</h4></th> {% endcomment %}
+            
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for occupant  in occupants%}
+            <tr>
+                <td><h5>{{occupant.occupant_id}}</h5></td>
+                <td><h5>{{occupant.member.name}}</h5></td>
+                <td><h5>{{occupant.name}}</h5></td>
+                <td><h5>{{occupant.member.flat_no_field}}</h5></td>
+                <td><h5>{{occupant.member.block_no_field}}</h5></td>
+                <td><h5>{{occupant.gender}}</h5></td>
+                <td><h5>{{occupant.religion}}</h5></td>
+                <td><h5>{{occupant.comming_date}}</h5></td>
+                <td><img src='{{occupant.profile}}' height='70' width='90'></td>
+                {% comment %} <td><a href='/occupantdetail/{{occupant.occupant_id}}/'>show all detail</a></td> {% endcomment %}
+                
+                
+                
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>

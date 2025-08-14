@@ -1,0 +1,51 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> Committees</h3>
+        </div>
+    </div>
+</div>
+
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                              
+                                
+                                <th class="product-total">Committee_id</th>
+                                <th class="product-total">Work_of_committee</th>
+                                <th class="product-total">No_of_members</th>
+                                <th class="product-total">Committee_creation_date</th>
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for committee in committees%}
+                            <tr>
+                                <td class="product-total">{{committee.committee_id}}</td>
+                                <td class="product-total">{{committee.work_of_committee}}</td>
+                                <td class="product-total">{{committee.no_of_members}}</td>
+                                <td class="product-total">{{committee.committee_creation_date}}</td>
+                               
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </br>
+                    
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

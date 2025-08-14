@@ -1,0 +1,211 @@
+{% extends "member/mindex.html" %}
+{%block demo%}
+<div class="row">
+  <div class="col-lg-8">
+      <div class="checkout-accordion-wrap">
+          <div class="accordion" id="accordionExample">
+            <div class="card single-accordion">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Profile   
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                  
+                  <div class="billing-address-form">
+                      <form action='/editmoccupant/{{occupants.occupant_id}}/' enctype='multipart/form-data' method='post' align='center'>
+                          {% csrf_token%}
+                          <p><input  type='text' 
+                            name='txtname' 
+                            value='{{occupants.name}}'></p>
+                          {% comment %} <p><input  value="{{member.contact_no_field}}" type="number" name="con"></p> {% endcomment %}
+                          <p><input  type='text' name='txtgender' value='{{occupants.gender}}'></p>
+                          <p><input   type='text' name='txtreligion' value='{{occupants.religion}}'></p>
+                          <p><input  type='date|' name='txtcdate' value='{{occupants.comming_date}}'  ></p>
+                          <p><input type='number' name='txtramount' value='{{occupants.rent_amount}}' ></p>
+                          <p><input type='number' name='txtno' value='{{occupants.no_of_family_member}}' ></p>
+                          <p><input type='text' name='txtldate' value='{{occupants.leaving_date}}'></p>
+                          <p><img src="{{occupants.profile }}" type="file" name="pr" style="width:50%;height:400px"/></p>
+                         
+                          <p><input   type="file" name="profile"></p>
+                          <div><input type="submit" value="Update"></div>
+                          
+                  
+                      </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+           
+            <div class="card single-accordion">
+              
+             
+              
+            </div>
+          </div>
+
+      </div>
+  </div>
+
+  
+</div>
+{% comment %} <div class="row">
+              
+                <div class="col-md-12">
+                  <div class="card">
+                    <form  action='/editmoccupant/{{occupants.occupant_id}}/' method='post' enctype='multipart/form-data/' class="form-horizontal">
+                        {% csrf_token %}
+                          <div class="card-body">
+                            <h2 class="card-title" align='center'>Occupant</h2>
+                          <div class="form-group row">
+                            <label
+                              for="fname"
+                              class="col-sm-3 text-end control-label col-form-label"
+                              ></label
+                            >
+                            <div class="col-sm-9">
+                              
+                              
+                    
+                      </div>
+                  </div>
+                
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Name:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='text' 
+                        name='txtname' 
+                        value='{{occupants.name}}'
+                          class="form-control"
+                          id="lname"
+                          placeholder=""
+                          
+                          readonly
+                        />
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Gender:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='text' name='txtgender' value='{{occupants.gender}}'
+                          class="form-control"
+                          id="lname"
+                          placeholder=""
+                          
+                          readonly
+                        />
+                      </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        > Religion:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='text' name='txtreligion' value='{{occupants.religion}}'
+                          class="form-control"
+                          id="lname"
+                          placeholder=""
+                          
+                          readonly
+                        />
+                      </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        > Comming date:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='text' name='txtcdate' value='{{occupants.comming_date}}'            class="form-control"
+                          id="lname"
+                          placeholder=""
+                          
+                          readonly
+                        />
+                      </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        > Rent amount:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='number' name='txtramount' value='{{occupants.rent_amount}}'            id="lname"
+                          placeholder=""
+                          
+                          readonly
+                        />
+                      </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        > Number of family members:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='number' name='txtno' value='{{occupants.no_of_family_member}}'            placeholder=""
+                          
+                        readonly
+                        />
+                      </div>
+                  </div> 
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Leaving date:</label
+                      >
+                      <div class="col-sm-9">
+                        <input
+                        type='text' name='txtldate' value='{{occupants.leaving_date}}' readonly            
+                        />
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label
+                        for="lname"
+                        class="col-sm-3 text-end control-label col-form-label"
+                        >Profile:</label
+                      >
+                      <div class="col-sm-9">
+                        
+                        <img src='{{occupants.profile}}' height='60' width='80'>
+                      </div>
+                  </div>
+                  
+                      </table>      
+                      </form>
+                      <center>
+                          <button class="btn btn-primary">
+                              <i class="me-2 mdi mdi-arrow-left">
+                                <a href="/moccupant/" 
+                                style="color:white">Back 
+                              </i></a>
+                            </button></center> 
+</div>             {% endcomment %}
+
+{% endblock %}

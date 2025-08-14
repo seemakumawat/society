@@ -1,0 +1,160 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editmembermaintenance/{{membermaintenances.member_maintenance_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Edit membermaintenance</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Maintenance</h4></label
+              >
+              <div class="col-sm-9">
+                <select name='txtmnid'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                
+                {%for maintenance in maintenances%}
+                    {% if maintenance == membermaintenances.maintenance %}
+                        <option value="{{maintenance.maintenance_id}}" selected>{{maintenance.month_year}}</option>
+                    {% else%}
+                        <option value="{{maintenance.maintenance_id}}">{{maintenance.month_year}}</option>
+                    {% endif %}
+                {%endfor%}
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>Member</h4></label
+                >
+                <div class="col-sm-9">
+                  <select name='txtmid'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  
+                  {%for member in members%}
+                      {% if member == membermaintenances.member %}
+                          <option value="{{member.member_id}}" selected>{{member.name}}</option>
+                      {% else%}
+                          <option value="{{member.member_id}}">{{member.name}}</option>
+                      {% endif %}
+                  {%endfor%}
+               </select>
+                </div>
+              </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Pay_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='txtdate' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{membermaintenances.pay_date}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='txtamount'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{membermaintenances.amount}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>Late_charges</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='text' 
+                    name='txtlcharges'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{membermaintenances.late_charges}}"
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>Total</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='text' 
+                    name='txttotal'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{membermaintenances.total}}"
+                    required
+                  />
+                </div>
+              </div>
+        
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                 </button>
+                 <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-delete">
+                    <a href='/deletemembermaintenance/{{membermaintenances.member_maintenance_id}}/' 
+                    onclick="return confirm ('Do you want to delete this row?')" 
+                    style="color:white">Delete 
+                  </i></a>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/membermaintenance/{{membermaintenances.maintenance.maintenance_id}}/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                
+                       &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+                      </center>   
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,170 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+edit complaint
+{%endblock%}
+{% block mdemo%}
+
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editmcomplaint/{{complaint.complaint_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" align='center'>Edit complaint</h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >member</label
+              >
+              <div class="col-sm-9">
+                <select name='mname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                
+                {%for member in members%}
+                    {%if member == complaint.member%}
+
+                             <option value='{{member.member_id}}' selected readonly>{{member.name}}</option>
+                     {% comment %} {%else%}
+                            <option value='{{member.member_id}}'>{{member.name}}</option> {% endcomment %}
+                     {%endif%}   
+                 {% endfor %}
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >description</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='desc' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{complaint.description}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >complaint_date</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='cdt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{complaint.complaint_date|date:'Y-m-d'}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >status</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='text' 
+                    name='st'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{complaint.status}}"
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >solution_date</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                    name='sdt'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{complaint.solution_date|date:'Y-m-d'}}"
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >committee_detail</label
+                >
+                <div class="col-sm-9">
+                  {% comment %} <select name='cname'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                   {% endcomment %}
+                  {%for committee in committeedetailss%}
+                  {%for committee in committees%}
+                        {%if committee == complaint.committee%}
+                        <div class="col-sm-9">
+                          <input
+                          type='text' 
+                          name='cdt'
+                            class="form-control"
+                            id="lname"
+                            placeholder=""
+                            value="{{committee.work_of_committee}}"
+                            readonly
+                          />
+                        {% comment %} </div>
+                            <option value='{{committee.committee_id}}' selected>{{committeedetail.committee.work_of_committee}}</option>
+                        {%else%}
+                            <option value='{{committee.committee_id}}'>{{committee.work_of_committee}}</option> {% endcomment %}
+
+                        {%endif%}
+                {% endfor %}
+                {% endfor %}
+               {% comment %} </select> {% endcomment %}
+                </div>
+              </div>
+        
+          {% comment %} </div> {% endcomment %}
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                </button>&nbsp;
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/mcomplaint/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+               
+                      &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

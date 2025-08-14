@@ -1,0 +1,144 @@
+{%extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-10 ml-5 col-md-12">
+        <div class="cart-table-wrap">
+            <table class="cart-table">
+                <thead class="cart-table-head">
+                   <br>
+                    <tr class="table-head-row">
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2 text-center">
+                                <div class="section-title">	
+                                    <h3><span class="orange-text"><br>Function</span> </h3>
+                                </div>
+                            </div>
+                        </div>
+                               
+                                {% comment %} <th class="product-total">Function id</th> {% endcomment %}
+                                <th class="product-total">Function name</th>
+                                <th class="product-total">Function place</th>
+                                <th class="product-total">Amount per member</th>
+                                <th class="product-total">Total pass</th>
+                                <th class="product-total">Total amount</th>
+                                <th class="product-total">Date</th>
+                                <th class="product-total">Status</th>
+                            
+                                
+                                
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for function  in functions%}
+                            <tr>
+                                {% comment %} <td class="product-total">{{function.function.function_name}}</td> {% endcomment %}
+                                <td class="product-total">{{function.function.function_name}}</td>
+                                <td class="product-total">{{function.function.function_place}}</td>
+                                <td class="product-total">{{function.function.amount_per_member}}</td>
+                                <td class="product-total">{{function.no_of_pass}}</td>
+                                <td class="product-total">{{function.amount}}</td>
+                                <td class="product-total">{{function.function.fdate}}</td>
+                                <td class="product-total">{{function.status}}</td>
+                                
+                               
+                              </tr>
+                            {% endfor%}
+                        </tbody>
+            </table>
+            <table class="cart-table">
+                <thead class="cart-table-head">
+                   
+                    <tr class="table-head-row">
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2 text-center">
+                                <div class="section-title">	
+                                    <h3><span class="orange-text"><br>Maintenance</span> </h3>
+                                </div>
+                            </div>
+                        </div>                               
+                        <th class="product-total">Month</th>
+                        {% comment %} <th class="product-total">member</th> {% endcomment %}
+                        <th class="product-total">Pay date</th>
+                        <th class="product-total">Amount </th>
+                        <th class="product-total">late charges</th>
+                        <th class="product-total">Total</th>
+                            
+                                
+                                
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for maintenance in maintenances%}
+                            <tr>
+                               
+                                <td class="product-total">{{maintenance.maintenance.month_year}}</td>
+                                {% comment %} <td class="product-total">{{maintenance.member.name}}</td> {% endcomment %}
+                               
+                                <td class="product-total">{{maintenance.pay_date}}</td>
+                                <td class="product-total">{{maintenance.amount}}</td>
+                                <td class="product-total">{{maintenance.late_charges}}</td>
+                                <td class="product-total">{{maintenance.total}}</td>
+                                
+                            </tr>
+                    {% endfor%}
+                        </tbody>
+            </table>
+            <table class="cart-table">
+                <thead class="cart-table-head">
+                   
+                    <tr class="table-head-row">
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2 text-center">
+                                <div class="section-title">	
+                                    <h3><span class="orange-text"><br>Booking</span> </h3>
+                                </div>
+                            </div>
+                        </div>                               
+                        <th class="product-total">From</th>
+                    <th class="product-total">To</th>
+                    
+                    <th class="product-total">Event Name</th>
+                    <th class="product-total">Date of booking</th>
+                    <th class="product-total">Status</th>
+                    <th class="product-total">Bill</th>
+                            
+                                
+                                
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking  in bookings%}
+                    <tr>
+                        
+                        <td class="product-total">{{booking.starting_date}}</td>
+                        <td class="product-total">{{booking.ending_date}}</td>
+                        
+                        <td class="product-total">{{booking.event_name}}</td>
+                        <td class="product-total">{{booking.booking_date}}</td>
+                        <td class="product-total">{{booking.status}}</td>
+                     
+                        <td class="product-total">{{booking.total}}</td>
+                        
+                        
+                      
+                    </tr>
+                    {% endfor%}
+                        </tbody>
+            </table>
+                </div>
+            </div>
+
+            
+</div>
+    
+{%endblock%}

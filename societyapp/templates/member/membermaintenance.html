@@ -1,0 +1,44 @@
+{% extends "member/mindex.html" %}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    {% comment %} <th class="card-title">Member maintenance id</th> {% endcomment %}
+                    <th class="card-title">Maintenance month</th>
+                    <th class="card-title">Member</th>
+                    <th class="card-title">Pay date</th>
+                    <th class="card-title">Amount</th>
+                    <th class="card-title">Late charges</th>
+                    <th class="card-title">Total</th>
+                    {% comment %} <th class="card-title">Show all detail</th> {% endcomment %}
+                    
+    
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for membermaintenance  in membermaintenances%}
+                    <tr>
+                        {% comment %} <td>{{membermaintenance.member_maintenance_id}}</td> {% endcomment %}
+                        <td>{{membermaintenance.maintenance.month_year}}</td>
+                        <td>{{membermaintenance.member.name}}</td>
+                        <td>{{membermaintenance.pay_date}}</td>
+                        <td>{{membermaintenance.amount}}</td>
+                        <td>{{membermaintenance.late_charges}}</td>
+                        <td>{{membermaintenance.total}}</td>
+                        
+                        {% comment %} <td><a href='/editmmembermaintenance/{{membermaintenance.member_maintenance_id}}/' class="me-2 mdi mdi-eye-outline">show all detail</a></td> {% endcomment %}
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+                  </div>
+                </div>
+               
+        {% endblock %}

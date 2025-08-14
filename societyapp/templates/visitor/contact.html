@@ -1,0 +1,33 @@
+{% extends "visitor/index.html" %}
+
+{%block demo%}
+<div class="row">
+    <div class="col-lg-8 mb-5 mb-lg-0">
+       
+         <div id="form_status"></div>
+        <div class="contact-form">
+            <form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+                <p>{% load static %}<div style='height:50px;width:100%'>
+                </div>
+                    <img src="{% static 'otherassets/assets/img/society.jpg'%}" style="width:100%;height:350px"/>
+                    <div style='height:50px;width:100%'>
+                    </div></p>
+                
+                
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="contact-form-wrap">
+           
+            
+            <div class="contact-form-box"><div style='height:50px;width:100%'>
+            </div>
+                <h4><i class="fas fa-address-book"></i> Contact Us</h4>
+                <p>Phone:
+                    90990 33422  <br> Email:info@devambuildcon.com </p>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

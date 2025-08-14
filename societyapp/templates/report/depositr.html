@@ -1,0 +1,15 @@
+{% extends "index1.html" %}
+{% block demo %}
+<form method='POST' action='/depositrpt/'>
+    {% csrf_token %}
+    <select name='search'>
+    {% comment %} class="select2 form-select shadow-none" {% endcomment %}
+    {% comment %} style="width: 100%; height: 36px"> {% endcomment %}
+    
+      <option value="rbi">rbi</option>
+      <option value="sbi">sbi</option>
+   
+ </select>&nbsp;<input type='submit' value='search by bank' name='sbb'>
+&nbsp;
+</form>
+{%endblock%}

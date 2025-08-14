@@ -1,0 +1,157 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+edit your booking
+{%endblock%}
+{% block mdemo%}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editbookingdetail/{{bookingdetails.booking_detail_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" align='center'>Edit bookingdetail</h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >booking with id</label
+              >
+              <div class="col-sm-9">
+                {% comment %} <select name='bname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px"> {% endcomment %}
+                
+                {%for booking in bookings%}
+                    {%if booking == bookingdetails.booking%}
+                        {% comment %} <option value='{{booking.booking_id}}' selected readonly>{{booking.event_name}}</option> {% endcomment %}
+                    {% comment %} {%else%}
+                        <option value='{{booking.booking_id}}'>{{booking.event_name}}</option> {% endcomment %}
+                        <input
+                            type='text' 
+                            name='name'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              value="{{booking.event_name}}"
+                              readonly
+                            />
+                        &nbsp;
+                            <input
+                            type='text' 
+                            name='bname'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              value="{{booking.booking_id}}"
+                              readonly
+                            />
+                    {%endif%}
+                 {%endfor%}
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >item with id</label
+              >
+              
+              <div class="col-sm-9">
+                {% comment %} <select name='iname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px"> {% endcomment %}
+                
+                {%for item in items%}
+                    {%if item == bookingdetails.item%}
+                            {% comment %} <option value='{{item.item_id}}' selected readonly>{{item.item_name}}</option> {% endcomment %}
+                     {% comment %} {%else%}
+                            <option value='{{item.item_id}}'>{{item.item_name}}</option> {% endcomment %}
+                            <input
+                            type='text' 
+                            name='name'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              value="{{item.item_name}}"
+                              readonly
+                            />
+                        &nbsp;
+                            <input
+                            type='text' 
+                            name='iname'
+                              class="form-control"
+                              id="lname"
+                              placeholder=""
+                              value="{{item.item_id}}"
+                              readonly
+                            />
+                            {%endif%}
+                 {%endfor%}
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >quantity</label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='qt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{bookingdetails.quantity}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >amount</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number' 
+                    name='amt'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{bookingdetails.amount}}"
+                    readonly
+                  />
+                </div>
+              </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                 </button>
+                 <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/bookingdetail/{{bookingdetails.booking.booking_id}}" 
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                       &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>&nbsp;
+                      </center>        
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

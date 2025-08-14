@@ -1,0 +1,43 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+society notice
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    <th class="card-title">Notice id</th>
+                    <th class="card-title">Committee</th>
+                    <th class="card-title">Description</th>
+                    <th class="card-title">Date</th>
+                    <th class="card-title">Status</th>
+                    <th class="card-title">Show all detail</th>
+                    
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for notice  in notices%}
+                    <tr>
+                        <td>{{notice.notice_id}}</td>
+                        <td>{{notice.committee.work_of_committee}}</td>
+                        <td>{{notice.description}}</td>
+                        <td>{{notice.date}}</td>
+                        <td>{{notice.status}}</td>
+                        <td><a href='/editnotice/{{notice.notice_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                        
+                        
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+              
+              </div>
+            </div>
+    {% endblock %}

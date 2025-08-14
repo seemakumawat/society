@@ -1,0 +1,47 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+society income
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    <th class="card-title">Income id</th>
+                    <th class="card-title">Member maintenance</th>
+                    <th class="card-title">Deposit</th>
+                    <th class="card-title">Booking</th>
+                    <th class="card-title">Society event fund</th>
+                    <th class="card-title">Date</th>
+                    <th class="card-title">Amount</th>
+                    
+                    <th class="card-title">Show all detail</th>
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for income  in incomes%}
+                    <tr>
+                        <td>{{income.income_id}}</td>
+                        <td>{{income.member_maintenance.maintenance.month_year}}</td>
+                        <td>{{income.deposit.description}}</td>
+                        <td>{{income.booking.event_name}}</td>
+                        <td>{{income.society_event_fund}}</td>
+                        <td>{{income.date}}</td>
+                        <td>{{income.amount}}</td>
+                        
+                        <td><a href='/editincome/{{income.income_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+            
+              
+              </div>
+            </div>
+    {% endblock %}

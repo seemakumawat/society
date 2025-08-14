@@ -1,0 +1,40 @@
+{% extends "member/mindex.html" %}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    <th class="card-title">Function id</th>
+                    <th class="card-title">Function name</th>
+                    <th class="card-title">Function place</th>
+                    <th class="card-title">Amount per member</th>
+                    <th class="card-title">Date</th>
+                    
+                    <th class="card-title">Show member function detail</th>
+                    <th class="card-title">Show function</th>
+                  </tr>
+              </thead>
+              <tbody>
+             
+                    {% for function  in functions%}
+                    <tr>
+                        <td>{{function.function_id}}</td>
+                        <td>{{function.function_name}}</td>
+                        <td>{{function.function_place}}</td>
+                        <td>{{function.amount_per_member}}</td>
+                        <td>{{function.date}}</td>
+                        
+                        <td><a href='/memberfunction/{{function.function_id}}/' class="me-2 mdi mdi-eye-outline">show member function detail</a></td>
+                        <td><a href='/editfunction/{{function.function_id}}/' class="me-2 mdi mdi-eye-outline">show function</a></td>
+                      </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+              </div>
+            </div>
+    {% endblock %} 

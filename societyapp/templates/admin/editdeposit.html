@@ -1,0 +1,152 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editdeposit/{{deposits.deposit_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" ><h3 align='center'>Edit deposit</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Name of Bank</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='txtnm' 
+                  class="form-control"
+                  id="fname"
+                  placeholder="name"
+                  
+                  value={{deposits.bank_name}} required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>description</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                name='desc'
+                class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{deposits.description}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>rate</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number'
+                name='rate'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{deposits.rate}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>deposit_amount</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='number'
+                  name='amount'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{deposits.deposit_amount}}"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>deposit_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                  name='ddt' 
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{deposits.deposit_date|date:'Y-m-d'}}"
+                    
+                  />
+                </div>
+              </div><div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>maturity_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date'
+                  name='mdt'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{deposits.maturity_date|date:'Y-m-d'}}"
+                    
+                  />
+                </div>
+              
+              
+              </div>
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center><button type="submit" class="btn btn-primary">
+                <i class="me-2 mdi mdi-border-color"> Update
+                </i>
+              </button> 
+              <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-delete">
+                  <a href='/deletedeposit/{{deposits.deposit_id}}/' 
+                  onclick="return confirm ('Do you want to delete this row?')" 
+                  style="color:white">Delete 
+                </i></a>
+              </button> 
+              <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-arrow-left">
+                  <a href="/deposit/"
+                  style="color:white">Back 
+                </i></a>
+              </button>
+              &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                Reset
+                </i>
+              </button>
+              
+            </center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

@@ -1,0 +1,197 @@
+{% extends "index1.html" %}
+{% block demo %}
+
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editexpense/{{expense.expence_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title" ><h3 align='center'>Edit expense</h3></h2>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>Expense type</h4></label
+                >
+                <div class="col-md-9">
+
+                
+                    
+                    <input
+                      type="radio"
+                      class="form-check-input"
+                      id="customControlValidation1"
+                      name="etype"
+                      value='fun'
+                      {% if expense.function %}
+                      checked
+                      {% endif%}
+                    />
+                    <label
+                      class="form-check-label mb-0"
+                      for="customControlValidation1"
+                      ><h4>Function</h4></label
+                    >
+                    <select name='fn'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for function in functions%}
+                      {% if function == expense.function%}
+                          <option value='{{function.function_id}}' selected>{{function.function_name}}</option>
+                        {%else%}
+                          <option value='{{function.function_id}}' >{{function.function_name}}</option>
+                      {% endif %}
+                      
+                    {%endfor%}
+                    </select>
+                    <div class="col-md-9">
+                     
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation1"
+                          name="etype"
+                          value='other'
+                          {% if expense.description %}
+                          checked
+                          {% endif %}
+                        />
+                    </div>
+                    <div class="col-md-9">
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation1"
+                          ><h4>&nbsp;Other</h4></label
+                        >
+                        
+                        <select name='ot'
+                        class="select2 form-select shadow-none"
+                        style="width: 100%; height: 36px">
+                        {%for other in others%}
+                          
+                        {% if other == expense.description%}
+    
+                          <option value='{{other}}' selected>{{other}}</option>
+                        {% else %}
+                        <option value='{{other}}' >{{other}}</option>
+                        {% endif %}
+                        {%endfor%}
+                     </select>
+                    </div>
+                    <div class="col-md-9">
+                    
+                      <div class="col-md-9">
+                     
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation1"
+                          name="etype"
+                          value='both'
+                          {% if expense.description %}
+                          {%if expense.function%}
+                          checked
+                          {% endif %}
+                          {% endif %}
+                        />
+                    </div>  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation1"
+                    ><h4>Both</h4></label
+                  >
+                  <select name='bfn'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  {%for function in functions%}
+                    
+                      <option value='{{function.function_id}}' >{{function.function_name}}</option>
+                    
+                  {%endfor%}
+               </select>
+              
+               <input
+               type='text' 
+               name='bdesc'
+                 class="form-control"
+                 id="lname"
+                 placeholder="discription"
+                 value='{{expense.description}}'
+               />
+              </div>
+                        
+                           
+            </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date'
+                 name='dt' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{expense.date|date:'Y-m-d'}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='amt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{expense.amount}}"
+                  required
+                />
+              </div>
+            </div>
+            
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-delete">
+                    <a href='/deleteexpense/{{expense.expence_id}}/' 
+                    onclick="return confirm ('Do you want to delete this row?')" 
+                    style="color:white">Delete 
+                  </i></a>
+                </button> 
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/expense/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+               
+                      &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

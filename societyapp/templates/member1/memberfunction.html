@@ -1,0 +1,58 @@
+{% extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Society</span> Function</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                <th class="card-title">Member function id</th>
+                    <th class="product-total">Function</th>
+                    <th class="product-total">Amount per member</th>
+                    <th class="product-total">No. of pass</th>
+                    <th class="product-total">Total</th>
+                    <th class="product-total">Pay date</th>
+                    
+                    <th class="product-total">Status</th>
+                    <th class="product-total">Show all detail</th>
+                               
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for memberfunction  in memberfunctions%}
+                    <tr>
+                        <td class="product-total">{{memberfunction.member_function_id}}</td>
+                        <td class="product-total">{{memberfunction.function.function_name}}</td>
+                        <td class="product-total">{{memberfunction.function.amount_per_member}}</td>
+                        <td class="product-total">{{memberfunction.no_of_pass}}</td>
+
+                        <td class="product-total">{{memberfunction.amount}}</td>
+                        <td class="product-total">{{memberfunction.pay_date}}</td>
+                        <td class="product-total">{{memberfunction.status}}</td>
+    
+                        <td><a href='/editmmemberfunction/{{memberfunction.member_function_id}}/' class="me-2 mdi mdi-eye-outline">show all detail</a></td>
+                        
+                    </tr>
+                    {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

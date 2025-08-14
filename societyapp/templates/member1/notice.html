@@ -1,0 +1,49 @@
+{% extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> Notice</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                                
+                                <th class="card-title">Committee</th>
+                                <th class="card-title">Description</th>
+                                <th class="card-title">Date</th>
+                                <th class="card-title">Status</th>
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notice  in notices%}
+                            <tr>
+                               
+                                <td>{{notice.committee.work_of_committee}}</td>
+                                <td>{{notice.description}}</td>
+                                <td>{{notice.date}}</td>
+                                <td>{{notice.status}}</td>
+                               
+                                
+                                
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

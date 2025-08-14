@@ -1,0 +1,184 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+  <div class="col-md-12">
+    <div class="card">
+      <form  action='/editmaintenance/{{maintenances.maintenance_id}}/' method='post' class="form-horizontal">
+        {% csrf_token %}
+          <div class="card-body">
+            <h2 class="card-title"><h3 align='center'>Edit maintenance</h3></h2>
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Month_year</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text' 
+              name='txtmy' 
+                class="form-control"
+                id="fname"
+                placeholder="name"
+                
+                value={{maintenances.month_year}} required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Total_income</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='number' 
+              name='txtincome'  
+                class="form-control"
+                id="lname"
+                placeholder="place"
+                value="{{maintenances.total_income}}"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Total_expence</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='number' 
+              name='txtexpense' 
+                class="form-control"
+                id="lname"
+                placeholder="amount"
+                value="{{maintenances.total_expence}}"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Amount_required</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='txtramount' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{maintenances.amount_required}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>No_of_member</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='txtmem' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{maintenances.no_of_member}}"
+                  required
+                />
+              </div>
+            </div><div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Maintenance_amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='txtmamount' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{maintenances.maintenance_amount}}"
+                  required
+                />
+              </div>
+            </div><div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Last_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='txtdate' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{maintenances.last_date|date:'Y-m-d'}}"
+                  required
+                />
+              </div>
+            </div><div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Late_charges</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='txtcharge' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{maintenances.late_charges}}"
+                  
+                />
+              </div>
+            </div>
+        </div>
+        <div class="border-top">
+          <div class="card-body">
+            <center>
+              <button type="submit" class="btn btn-primary">
+                <i class="me-2 mdi mdi-border-color"> Update
+                </i>
+               </button>
+               <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-delete">
+                  <a href='/deletemaintenance/{{maintenances.maintenance_id}}/' 
+                  onclick="return confirm ('Do you want to delete this row?')" 
+                  style="color:white">Delete 
+                </i></a>
+              </button>
+              <button class="btn btn-primary">
+                <i class="me-2 mdi mdi-arrow-left">
+                  <a href="/maintenance/"
+                  style="color:white">Back 
+                </i></a>
+              </button>
+                     &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                      Reset
+                      </i>
+                    </button>&nbsp;
+                    </center>        
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

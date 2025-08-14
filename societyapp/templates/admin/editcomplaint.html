@@ -1,0 +1,288 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editcomplaint/{{complaint.complaint_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Edit complaint</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>member</h4></label
+              >
+              <div class="col-sm-9">
+               
+                {%for member in members%}
+                    {%if member == complaint.member%}
+
+                    <input
+                    type='text'
+                     name='mname' 
+                      class="form-control"
+                      id="lname"
+                      placeholder="place"
+                      value="{{member.name}}"
+                      readonly
+                    />
+                     {%endif%}   
+                 {% endfor %}
+             
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>description</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='desc' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{complaint.description}}"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>complaint_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='cdt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{complaint.complaint_date|date:'Y-m-d'}}"
+                  readonly
+                />
+              </div>
+            </div>
+            
+                
+                <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    ><h4>Status</h4> </label
+                  >
+                  <div class="col-md-9"> 
+                      {% if complaint.status == 'pending' %}
+                        <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation1"
+                          name="st"
+                          value='pending'
+                          checked
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation1"
+                          >pending</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='cancel'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >cancel</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='solved'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >solved</label
+                        >
+                      </div>
+                      {%elif complaint.status == 'cancel' %}
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation1"
+                          name="st"
+                          value='pending'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation1"
+                          >pending</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='cancel'
+                          checked
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >cancel</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='solved'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >solved</label
+                        >
+                      </div>
+                       {%else%}
+                       <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation1"
+                          name="st"
+                          value='pending'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation1"
+                          >pending</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='cancel'
+                          
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >cancel</label
+                        >
+                      </div>
+                      <div class="form-check">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="customControlValidation2"
+                          name="st"
+                          value='solved'
+                          checked
+                        />
+                        <label
+                          class="form-check-label mb-0"
+                          for="customControlValidation2"
+                          >solved</label
+                        >
+                      </div> 
+                      {%endif%}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>solution_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                    name='sdt'
+                    class="form-control"
+                    id="lname"
+                    placeholder="amount"
+                    value="{{complaint.solution_date|date:'Y-m-d'}}"
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>committee_detail</h4></label
+                >
+                <div class="col-sm-9">
+                  <select name='cname'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  
+                  {%for committeedetail in committeedetails%}
+                        {%if committeedetail == complaint.committee_detail%}
+                            <option value='{{committeedetail.committee_detail_id}}' selected>{{committeedetail.committee.work_of_committee}}</option>
+                        {%else%}
+                            <option value='{{committeedetail.committee_detail_id}}'>{{committeedetail.committee.work_of_committee}}</option>
+
+                        {%endif%}
+                {% endfor %}
+               </select>
+                </div>
+              </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                </button>&nbsp;
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/complaint/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+               
+                      &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

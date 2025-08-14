@@ -1,0 +1,71 @@
+{% extends "visitor/index.html" %}
+{% block demo %}
+<div style='height:50px;width:100%'>
+</div>
+{% comment %}<h2 class="card-title">Table</h2>{% endcomment %}
+ <div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text"></span> Advertisement</h3>
+        </div>
+    </div>
+</div> 
+        {% comment %} <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                <th class="product-total">Date</th>
+                                <th class="product-total">Description</th>
+                                <th class="product-total">Status</th>
+                
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for advertisement in advertisements%}
+                            <tr class="table-body-row">
+                               
+                    <td class="product-remove">{{advertisement.date}}</td>
+                    <td class="product-remove">{{advertisement.description}}</td>
+                    <td class="product-remove">{{advertisement.status}}</td>
+                    <td class="product-remove">{{advertisement.member.name}}</td>
+                    
+                    
+                               
+                            </tr>
+                            {% endfor%}
+                           
+                        </tbody>
+                    </table><br>
+                    
+                <br></div>
+            </div>
+
+            
+        </div> {% endcomment %}
+        <div class="single-product mt-80 mb-150">
+            <div class="container">
+                <div class="row">
+                    {% for advertisement in advertisements%}
+                    <div class="col-md-5">
+                        <div class="single-product-img">
+                            <img src="{{advertisement.member.profile}}" alt="Not found" style='height:400px'>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="single-product-content">
+                            <h3>{{advertisement.member.name}} give the advertisement for {{advertisement.description}} on {{advertisement.date}}</h3>
+                            <p class="single-product-pricing"><span> Contact no.:{{advertisement.member.contact_no_field}}</span> </p>
+                            
+                            
+                        </div>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+        </div>
+{% endblock %}

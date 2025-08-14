@@ -1,0 +1,229 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Member</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'otherassets/assets/img/favicon.png' %}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/all.min.css' %}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/bootstrap/css/bootstrap.min.css' %}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/owl.carousel.css' %}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/magnific-popup.css' %}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/animate.css' %}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/meanmenu.min.css' %}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/main.css' %}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/responsive.css' %}">
+
+</head>
+<body>
+	
+	
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="{% static 'member/assets/images/logo.jpg' %}" alt="">
+							</a>
+						</div>
+						
+						<nav class="main-menu">
+							<ul>
+								
+									
+										<li><a href="/vhome/"> Home</a></li>
+										
+									
+							
+								<li><a href="/vabout/">About</a></li>
+								
+								
+								<li><a href="/vcontact/">Contact</a></li>
+								<li><a href="/vadvertisement/">Advertisement</a></li>
+									{% comment %} <ul class="sub-menu">
+										<li><a href="/mbooking/">Booking</a></li>
+										<li><a href="/cart/">Cart</a></li>
+										<li><a href="/mmaintenance/">Maintenance</a></li>
+										<li><a href="/mcomplaint/">Complaint</a></li>
+										<li><a href="/madvertisement/">Advertisement</a></li>
+										<li><a href="/mmemberfunction/">Function</a></li>
+										<li><a href="/moccupant/">Occupant</a></li>
+										<li><a href="/mcommitteedetail/">Committee</a></li>
+										<li><a href="/payment/">My Payment</a></li>
+										<li><a href="/mmember/">profile</a></li>
+									</ul> {% endcomment %}
+								{% comment %} </li> {% endcomment %}
+								<li><a href="/vmember/">Members</a></li>
+									{% comment %} <ul class="sub-menu">
+										<li><a href="/mcommittee/">Committee</a></li>
+								<li><a href="/mdeposit/">Deposit</a></li>
+								<li><a href="/mexpense/">Expense</a></li>
+								<li><a href="/mincome/">Income</a></li>
+								<li><a href="/mfunction/">Function</a></li>
+								 		
+										<li><a href="/mitem/">Item</a></li>
+										<li><a href="/mnotice/">Notice</a></li>
+										
+									
+								</li>
+									</ul> {% endcomment %}
+					
+								
+								<li>
+									<div class="header-icons">
+										{% comment %} <a class="shopping-cart" href="/cart/"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> {% endcomment %}
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<div class="hero-area society" style='height:150px;width:100%' >
+	 
+            
+           
+            
+		 </div>  
+	
+    <div style="height:px;width:100%"></div>
+	
+	<div class="hero-arsea society">
+	   
+        
+    </div>
+    {% block demo%}
+            {%endblock%}
+	
+	<div class="footer-area" >
+	
+		<div class="container" style='height:60px;width:100%'>
+			
+			<div class="row" >
+				<div class="col-lg-4 col-md-6 " >
+					<div class="footer-box about-widget" >
+						<h2 class="widget-title" >About us</h2>
+						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>Vatva road, new vatva, Ahmedabad.</li>
+							<li> info@devambuildcon.com</li>
+							<li>90990 33422</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="/vhome/">Home</a></li>
+							<li><a href="/vabout/">About</a></li>
+							{% comment %} <li><a href="services.html">My activity</a></li> {% endcomment %}
+							<li><a href="/vcontact/">Contact</a></li>
+							{% comment %} <li><a href="/mitem/">Rent</a></li> {% endcomment %}
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					{% comment %} <p>Copyrights &copy; 2019  All Rights Reserved.<br> {% endcomment %}
+						
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	
+	<!-- jquery -->
+	<script src="{% static 'otherassets/assets/js/jquery-1.11.3.min.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'otherassets/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!-- count down -->
+	<script src="{% static 'otherassets/assets/js/jquery.countdown.js' %}"></script>
+	<!-- isotope -->
+	<script src="{% static 'otherassets/assets/js/jquery.isotope-3.0.6.min.js' %}"></script>
+	<!-- waypoints -->
+	<script src="{% static 'otherassets/assets/js/waypoints.js' %}"></script>
+	<!-- owl carousel -->
+	<script src="{% static 'otherassets/assets/js/owl.carousel.min.js' %}"></script>
+	<!-- magnific popup -->
+	<script src="{% static 'otherassets/assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- mean menu -->
+	<script src="{% static 'otherassets/assets/js/jquery.meanmenu.min.js' %}"></script>
+	<!-- sticker js -->
+	<script src="{% static 'otherassets/assets/js/sticker.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'otherassets/assets/js/main.js' %}"></script>
+
+</body>
+</html>

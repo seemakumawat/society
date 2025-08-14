@@ -1,0 +1,57 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            {% comment %} {% for booking in bookings%}
+                            <td class="product-total">{{booking.starting_date}}</td>
+                        <td class="product-total">{{booking.ending_date}}</td>
+                        
+                        <td class="product-total">{{booking.event_name}}</td>
+                        <td class="product-total">{{booking.booking_date}}</td>
+                        <td class="product-total">{{booking.status}}</td>
+                     
+                        <td class="product-total">{{booking.total}}</td> {% endcomment %}
+                            <tr class="table-head-row">
+                               
+                                
+                               
+                                
+                                <th class="product-total">booking</th>
+                                <th class="product-total">item</th>
+                                <th class="product-total">quantity</th>
+                                <th class="product-total">amount</th>
+                               
+                               
+                                
+                            </tr>
+                            {% comment %} {% endfor%} {% endcomment %}
+                        </thead>
+                        <tbody>
+                            
+                            {% for bookingdetail  in bookingdetails%}
+                            <tr>
+                                
+                                <td>{{bookingdetail.booking.event_name}}</td>
+                                <td>{{bookingdetail.item.item_name}}</td>
+                                <td>{{bookingdetail.quantity}}</td>
+                                <td>{{bookingdetail.amount}}</td>
+                                <td><a href='/binvoice/{{bookingdetail.booking_detail_id}}/'>Download</a></td>
+                                
+                                
+                            </tr>
+                            {% endfor%}
+                            {% comment %} {% endfor%} {% endcomment %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

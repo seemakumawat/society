@@ -1,0 +1,30 @@
+<h1 align='center'>Advertisement
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+     <thead>
+    <tr>
+        <th class="card-title"><h4>Id</h4></th>
+        <th class="card-title"><h4>Member</h4></th>
+        <th class="card-title"><h4>Date</h4></th>
+        <th class="card-title"><h4>Description</h4></th>
+        <th class="card-title"><h4>Status</h4></th>
+        {% comment %} <th class="card-title"><h4>More detail</h4></th> {% endcomment %}
+    </tr>
+  </thead>
+  <tbody>
+ 
+        {% for advertisement  in advertisements%}
+        <tr>
+            <td><h5>{{advertisement.advertise_id}}</h5></td>
+            <td><h5>{{advertisement.member.name}}</h5></td>
+            <td><h5>{{advertisement.date}}</h5></td>
+            <td><h5>{{advertisement.description}}</h5></td>
+            <td><h5>{{advertisement.status}}</h5></td>
+            
+            {% comment %} <td><a href='/editadvertisement/{{advertisement.advertise_id}}/'><i class="me-2 mdi mdi-border-color">More detail</i></a></td> {% endcomment %}
+            
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>

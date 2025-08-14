@@ -1,0 +1,55 @@
+{% extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> incomes</h3>
+        </div>
+    </div>
+</div>
+
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                             
+                                
+                                <th class="product-total">Income id</th>
+                                <th class="product-total">Member maintenance</th>
+                                <th class="product-total">Deposit</th>
+                                <th class="product-total">Booking</th>
+                                <th class="product-total">Society event fund</th>
+                                <th class="product-total">Date</th>
+                                <th class="product-total">Amount</th>
+                                
+                                {% comment %} <th class="product-total">Show all detail</th> {% endcomment %}
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for income  in incomes%}
+                    <tr>
+                        <td class="product-total">{{income.income_id}}</td>
+                        <td class="product-total">{{income.member_maintenance.maintenance.month_year}}</td>
+                        <td class="product-total">{{income.deposit.description}}</td>
+                        <td class="product-total">{{income.booking.event_name}}</td>
+                        <td class="product-total">{{income.society_event_fund}}</td>
+                        <td class="product-total">{{income.date}}</td>
+                        <td class="product-total">{{income.amount}}</td>
+                        
+                        {% comment %} <td class="product-total"><a href='/editincome/{{income.income_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+                    </tr>
+                    {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

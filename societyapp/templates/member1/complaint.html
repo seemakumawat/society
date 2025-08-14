@@ -1,0 +1,57 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">My</span> Complaints</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                    <th class="product-total">Description</th>
+                    <th class="product-total">Complaint date</th>
+                    <th class="product-total">Status</th>
+                    
+                    <th class="product-total">Committee detail</th>
+                    <th class="product-total">Edit</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for complaint  in complaints%}
+                    <tr>
+                      
+                        <td class="product-total">{{complaint.description}}</td>
+                        <td class="product-total">{{complaint.complaint_date}}</td>
+                        <td class="product-total">{{complaint.status}}</td>
+                        
+                        <td class="product-total">{{complaint.committee_detail.committee.work_of_committee}}</td>
+                        <td class="product-total"><a href='/editmcomplaint/{{complaint.complaint_id}}/' > <i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                        
+                    </tr>
+                    {% endfor%}
+                </tbody>
+                
+            </table>
+            <center><a href='/addmcomplaint/'><button type="button" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+              Add complaint
+              </i>
+            </button></a></center>
+                           
+                           
+                <br></div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

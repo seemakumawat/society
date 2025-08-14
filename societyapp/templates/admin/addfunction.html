@@ -1,0 +1,92 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addfunction/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Add new function</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                > <h4>function_name</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='fn' 
+                  class="form-control"
+                  id="fname"
+                  placeholder="name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>function_place</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='fp' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>amount_per_member</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='apm'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type='date' 
+                    name='dt'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+        
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+            <center><button type="submit" class="btn btn-primary" onclick='alert("Function added succefully")'>
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

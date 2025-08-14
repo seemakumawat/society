@@ -1,0 +1,97 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+  <div class="col-md-12"> 
+    <div class="card">
+      <form  action='/editcommittee/{{committees.committee_id}}/' method='post' class="form-horizontal">
+        {% csrf_token %}
+          <div class="card-body">
+          <h4 class="card-title"><h3>Edit committee</h3> </h4>
+          <div class="form-group row">
+            <label
+              for="fname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Committee work</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='text' 
+              name='txtnm'
+                class="form-control"
+                id="fname"
+                placeholder="committee work"
+                
+                value="{{committees.work_of_committee}}" required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>No_of_members</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='number' 
+              name='no' 
+                class="form-control"
+                id="lname"
+                placeholder="no_of_members"
+                value="{{committees.no_of_members}}"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label
+              for="lname"
+              class="col-sm-3 text-end control-label col-form-label"
+              ><h4>Creation_date</h4></label
+            >
+            <div class="col-sm-9">
+              <input
+              type='date' 
+                name='dt' 
+                class="form-control"
+                id="lname"
+                placeholder="yyyy-mm-dd"
+                value="{{committees.committee_creation_date|date:'Y-m-d'}}"
+                required
+              />
+            </div>
+          </div>
+      
+        </div>
+        <div class="border-top">
+          <div class="card-body"><center>
+            <button type="submit" class="btn btn-primary">
+              <i class="me-2 mdi mdi-border-color"> Update
+              </i>
+             </button>
+             <button class="btn btn-primary">
+              <i class="me-2 mdi mdi-delete">
+                <a href='/deletecommittee/{{committees.committee_id}}/' 
+                onclick="return confirm ('Do you want to delete this row?')" 
+                style="color:white">Delete 
+              </i></a>
+            </button>
+            <button class="btn btn-primary">
+              <i class="me-2 mdi mdi-arrow-left">
+                <a href="/one_committee/"
+                style="color:white">Back 
+              </i></a>
+            </button>
+                   &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                    Reset
+                    </i>
+                  </button>&nbsp;
+                  </center>        
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}

@@ -1,0 +1,35 @@
+<h1 align='center'>Expense
+   
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Expence id</h4></th>
+            <th class="card-title"><h4>Function</h4></th>
+            <th class="card-title"><h4>Description</h4></th>
+            <th class="card-title"><h4>Date</h4></th>
+            <th class="card-title"><h4>Amount</h4></th>
+           
+            
+            {% comment %} <th class="card-title">Show all detail</th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for expense in expenses%}
+            <tr>
+                <td><h5>{{expense.expence_id}}</h5></td>
+                <td><h5>{{expense.function.function_name}}</h5></td>
+                <td><h5>{{expense.description}}</h5></td>
+                <td><h5>{{expense.date}}</h5></td>
+                <td><h5>{{expense.amount}}</h5></td>
+                
+                
+                {% comment %} <td><a href='/editexpense/{{expense.expence_id}}/' > <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+            </tr>
+            
+            {% endfor%}
+            <tr><td colspan='4'>Total Expenses</td><td ><h5>{{amt}}</h5></td></tr>
+        </tbody>
+        
+    </table>

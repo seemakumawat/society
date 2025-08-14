@@ -1,0 +1,183 @@
+{% extends "member/mindex.html" %}
+{%load static %}
+{%block hdemo%}
+your item
+{%endblock%}
+{%block mdemo%}
+
+
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Cart</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/all.min.css' %}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/bootstrap/css/bootstrap.min.css' %}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/owl.carousel.css' %}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/magnific-popup.css' %}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/animate.css' %}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/meanmenu.min.css' %}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/main.css' %}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{% static 'otherassets/assets/css/responsive.css' %}">
+
+</head>
+<body>
+	
+	
+	<div class="cart-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+                                
+								<tr class="table-head-row">
+                                  
+									<th class="product-remove"></th>
+									<th class="product-image">Product Image</th>
+									<th class="product-name">Name</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Quantity</th>
+									<th class="product-quantity">Total</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+                                {%for c in cart%}
+                                <tr class="table-body-row">
+									<td class="product-remove"><a href="/deletecart/{{c.cart_id}}/"><i class="far fa-window-close" onclick='return confirm("Do you want to remove this item from cart")'></i></a></td>
+									<td class="product-image"><img src="{{c.item.image}}" alt=""></td>
+									
+                                    <td class="product-name">{{c.item.item_name}}</td>
+									<td class="product-price">{{c.rate }}</td>
+									<td class="product-price">{{c.quantity}}</td>
+                                    <td class="product-price">{{c.total }}</td>
+                                   
+
+                                </tr>
+								
+								{% endfor%}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="total-section">
+						<table class="total-table">
+							<thead class="total-table-head">
+								<tr class="table-total-row">
+									<th>Total</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="total-data">
+									<td><strong>Total: </strong></td>
+									<td>{{total}}</td>
+								</tr>
+								<input type='hidden' value={{total}} name='price'>
+								
+								
+							</tbody>
+						</table>
+					</div>
+				<form  action='/checkout/' method='post' class="form-horizontal">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-4">
+							Event name
+						</div>
+					
+							
+							<div class="col-md-8">
+
+								<input class="contactus"   placeholder="" type="text"  name="event">                           
+							 </div>
+							 </div>
+							 
+							 <div class="row">
+								<div class="col-md-4">
+									starting date
+								</div>
+							
+									
+									<div class="col-md-8">
+		
+										<input class="contactus"   placeholder="" type="datetime-local"  name="sdt">                           
+									 </div>
+									 </div>
+									 <div class="row">
+										<div class="col-md-4">
+											ending date
+										</div>
+									
+											
+											<div class="col-md-8">
+				
+												<input class="contactus"   placeholder="" type="datetime-local"  name="edt">                           
+											 </div>
+											 </div>
+								
+							 
+							 
+					
+						<div class="cart-buttons">
+							<center><input type="submit" class="boxed-btn" value='Check Out'></center>
+							
+						</div>
+				</form>
+					</div>
+
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- jquery -->
+	<script src="{% static 'otherassets/assets/js/jquery-1.11.3.min.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'otherassets/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+	<!-- count down -->
+	<script src="{% static 'otherassets/assets/js/jquery.countdown.js' %}"></script>
+	<!-- isotope -->
+	<script src="{% static 'otherassets/assets/js/jquery.isotope-3.0.6.min.js' %}"></script>
+	<!-- waypoints -->
+	<script src="{% static 'otherassets/assets/js/waypoints.js' %}"></script>
+	<!-- owl carousel -->
+	<script src="{% static 'otherassets/assets/js/owl.carousel.min.js' %}"></script>
+	<!-- magnific popup -->
+	<script src="{% static 'otherassets/assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- mean menu -->
+	<script src="{% static 'otherassets/assets/js/jquery.meanmenu.min.js' %}"></script>
+	<!-- sticker js -->
+	<script src="{% static 'otherassets/assets/js/sticker.js' %}"></script>
+	<!-- main js -->
+	<script src="{% static 'otherassets/assets/js/main.js' %}"></script>
+
+</body>
+</html>
+{%endblock%}

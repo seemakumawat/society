@@ -1,0 +1,32 @@
+<h1 align='center'>Function
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Function id</h4></th>
+            <th class="card-title"><h4>Function name</h4></th>
+            <th class="card-title"><h4>Function place</h4></th>
+            <th class="card-title"><h4>Amount per member</h4></th>
+            <th class="card-title"><h4>Date</h4></th>
+            
+            <th class="card-title">Show member function detail</th>
+            {% comment %} <th class="card-title">Show function</th> {% endcomment %}
+          </tr>
+      </thead>
+      <tbody>
+     
+            {% for function  in functions%}
+            <tr>
+                <td><h5>{{function.function_id}}</h5></td>
+                <td><h5>{{function.function_name}}</h5></td>
+                <td><h5>{{function.function_place}}</h5></td>
+                <td><h5>{{function.amount_per_member}}</h5></td>
+                <td><h5>{{function.date}}</h5></td>
+                
+                <td><a href='/memberfunction/{{function.function_id}}/' class="me-2 mdi mdi-eye-outline">show member function detail</a></td>
+                {% comment %} <td><a href='/editfunction/{{function.function_id}}/' class="me-2 mdi mdi-eye-outline">show function</a></td> {% endcomment %}
+              </tr>
+            {% endfor%}
+        </tbody>
+    </table>

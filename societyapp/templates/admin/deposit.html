@@ -1,0 +1,43 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><h3>Bank Deposit</h3></h5>
+      <div class="table-responsive">
+        <table
+          id="zero_config"
+          class="table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+                <th class="card-title"><h4>Deposit id</h4></th>
+                <th class="card-title"><h4>Bank name</h4></th>
+                <th class="card-title"><h4>Description</h4></th>
+                <th class="card-title"><h4>Rate</h4></th>
+                <th class="card-title"><h4>Deposit amount</h4></th>
+                <th class="card-title"><h4>Deposit date</h4></th>
+                <th class="card-title"><h4>Maturity date</h4></th>
+                <th class="card-title"><h4>edit</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+         
+                {% for deposit in deposits%}
+                <tr>
+                    <td><h5>{{deposit.deposit_id}}</h5></td>
+                    <td><h5>{{deposit.bank_name}}</h5></td>
+                    <td><h5>{{deposit.description}}</h5></td>
+                    <td><h5>{{deposit.rate}}</h5></td>
+                    <td><h5>{{deposit.deposit_amount}}</h5></td>
+                    <td><h5>{{deposit.deposit_date}}</h5></td>
+                    <td><h5>{{deposit.maturity_date}}</h5></td>
+                    <td><a href='/editdeposit/{{deposit.deposit_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td>
+                    
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+        
+          </div>
+        </div>
+{% endblock %}

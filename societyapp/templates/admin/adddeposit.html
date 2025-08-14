@@ -1,0 +1,129 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/adddeposit/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Add new deposit</h3></h2>            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4> bank_name</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='txtnm' 
+                  class="form-control"
+                  id="fname"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                >    <h4>description</h4>
+                </label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='desc'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>rate</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='rate'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>deposit_amount</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type ='number'
+                   name='amount'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>deposit_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                  name='ddt'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                 ><h4> maturity_date</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                  name='mdt'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                  />
+                </div>
+              </div>
+             
+            </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center><button type="submit" class="btn btn-primary" onclick='alert("Deposit added succefully")'>
+                Submit
+              </button>
+              <input type="reset" value="reset" class="btn btn-primary">
+            </center>
+              
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

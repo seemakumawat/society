@@ -1,0 +1,29 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> Items</h3>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    {% for item in items%}
+    <div class="col-lg-4 col-md-6 text-center">
+        <div class="single-product-item">
+            <div class="product-image">
+                <a href="single-product.html"><img src="" alt=""></a>
+            </div>
+            <h3>{{item.item_name}}</h3>
+            <p class="product-price"><span>Per unit</span>Rs. {{item.price_per_unit}} </p>
+            <img src="{{item.image}}" style="height:250px;width:70%" alt=""><br>&nbsp;&nbsp;<br>
+            <a href="/itemdetail/{{item.item_id}}/" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        </div>
+    </div>
+    {% endfor%}
+</div>
+   
+{% endblock%}

@@ -1,0 +1,122 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editbookingdetail/{{bookingdetails.bookingdetail_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Edit bookingdetail</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>booking</h4></label
+              >
+              <div class="col-sm-9">
+               
+            
+                
+                {%for booking in bookings%}
+                    {%if booking == bookingdetails.booking%}
+                    <input
+          type='bname' 
+          name='txtname' 
+          value={{booking.event_name}}
+            class="form-control"
+            id="lname"
+            
+            
+            readonly
+          />
+                        
+                     
+                    {%endif%}
+                {%endfor%}    
+                  
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>item</h4></label
+                >
+                <div class="col-sm-9">
+                  
+                  
+                  {%for item in items%}
+                    {%if item == bookingdetails.item%}
+                    <input
+                    type='iname' 
+                    name='txtname' 
+                    value='{{item.item_name}}'
+                      class="form-control"
+                      id="lname"
+                      
+                      
+                      readonly
+                        {%endif%}
+                {%endfor%} 
+               </select>
+                </div>
+              </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Quantity</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='qt'
+                  class="form-control"
+                  id="lname"
+                
+                  value={{bookingdetails.quantity}}
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                  name='amt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  value="{{bookingdetails.amount}}"
+                  readonly
+                />
+              </div>
+            </div>
+            
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                
+                 <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/one_booking/" 
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                       &nbsp;
+                      </button>&nbsp;
+                      </center>        
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

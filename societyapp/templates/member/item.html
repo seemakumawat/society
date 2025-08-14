@@ -1,0 +1,32 @@
+
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+available   Items {{items.item_name}}
+{%endblock%}
+{%block mdemo%}
+{%load static %}
+
+
+<div class="row">
+    {%for item in items%}
+    <div class="col-md-4 col-sm-6">
+        
+       <div id="serv_hover"  class="room">
+        
+          <div class="room_img">
+             <figure><img src="{{item.image}}" alt="#"/></figure>
+          </div>
+          <div class="bed_room">
+             <center><h3><a href='/itemdetail/{{item.item_id}}/'>{{item.item_name}}</a></h3></center>
+             {% comment %} <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p> {% endcomment %}
+             
+            </div>
+        
+       </div>
+       
+    </div>
+   
+    {%endfor%}
+ </div>
+
+{%endblock%}

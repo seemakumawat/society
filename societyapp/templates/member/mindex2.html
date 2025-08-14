@@ -1,0 +1,15 @@
+{% extends "member/mindex.html" %}
+{%load static %}
+{%block profile%}
+<li class="nav-item">
+   <a class="nav-link" href="/mmember/"><img src="{% static 'member/assets/images/profile.jpg' %}" height='15' width='20'></a>
+</li> 
+{%endblock%} 
+{%block hdemo%}
+Dashboard
+{%endblock%}
+
+{%block mdemo%}
+<img   width='100%' height='100%' src="{% static 'member/assets/images/society.jpg' %}" alt="user" />
+   
+{% endblock %}

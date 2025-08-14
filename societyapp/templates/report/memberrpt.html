@@ -1,0 +1,41 @@
+<h1 align='center'>Member&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Id</h4></th>
+            <th class="card-title"><h4>Name</h4></th>
+            
+            <th class="card-title"><h4>Contact no.</h4></th>
+            <th class="card-title"><h4>Flat no.</h4></th>
+            <th class="card-title"><h4>Block no.</h4></th>
+            
+            <th class="card-title"><h4>Member status</h4></th>
+            
+            <th class="card-title"><h4>Profile</h4></th>
+            {% comment %} <th class="card-title"><h4>More detail</h4></th> {% endcomment %}
+        </tr>
+      </thead>
+      <tbody>
+
+     
+    {% for member in members%}
+        <tr>
+        <td><h5>{{member.member_id}}</h5></td>
+        <td><h5>{{member.name}}</h5></td>
+       
+        <td><h5>{{member.contact_no_field}}</h5></td>
+        <td><h5>{{member.flat_no_field}}</h5></td>
+        <td><h5>{{member.block_no_field}}</h5></td>
+       
+        <td><h5>{{member.member_status}}</h5></td>
+        
+        <td><img src="{{member.profile}}" height='70' width='90'></td>
+        
+        {% comment %} <td><a href='/memberdetail/{{member.member_id}}/'> <i class="me-2 mdi mdi-border-color">More detail</i></a></td> {% endcomment %}
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>

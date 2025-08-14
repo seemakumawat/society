@@ -1,0 +1,76 @@
+{% extends "member1/index.html" %}
+{% block demo%}<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">My</span> House Occupant</h3>
+        </div>
+    </div>
+</div>
+        <div class="row">
+            <div class="col-lg-10 ml-5 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                               
+                               
+                                {% comment %} <th class="card-title">Occupant id</th> {% endcomment %}
+                    {% comment %} <th class="product-total">Member</th> {% endcomment %}
+                    <th class="product-total">Name</th>
+                    <th class="product-total">Flat no.</th>
+                    <th class="product-total">Block no.</th>
+                    <th class="product-total">Gender</th>
+                    <th class="product-total">Religion</th>
+                    <th class="product-total">Comming date</th>
+                    <th class="product-total">Leaving date</th>
+                   
+                    <th class="product-total">Profile</th>
+                  
+                    <th class="product-total">show all detail</th>
+                                
+                               
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for occupant  in occupants%}
+                            <tr>
+                                {% comment %} <td>{{occupant.occupant_id}}</td> {% endcomment %}
+                                {% comment %} <td>{{occupant.member.name}}</td> {% endcomment %}
+                                <td>{{occupant.name}}</td>
+                                <td>{{occupant.member.flat_no_field}}</td>
+                                <td>{{occupant.member.block_no_field}}</td>
+                                <td>{{occupant.gender}}</td>
+                                <td>{{occupant.religion}}</td>
+                                <td>{{occupant.comming_date}}</td>
+                                <td>{{occupant.leaving_date}}</td>
+                                {%comment%}<td>{{occupant.rent_amount}}</td>{%endcomment%}
+                                {%comment%}<td>{{occupant.no_of_family_member}}</td>{%endcomment%}
+                                <td><img src='{{occupant.profile}}' height='90' width='100'></td>
+                                {% comment %} <td>{{occupant.leaving_date}}</td> {% endcomment %}
+                                <td><a href='/editmoccupant/{{occupant.occupant_id}}/'>show all detail</a></td>
+                                
+                                
+                                
+                                
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                    <br>
+                    <center><a href='/addmoccupant/'><button type="button" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Add occupant
+                        </i>
+                      </button></a></center> 
+                      <br>
+                </div>
+            </div>
+
+            
+        </div>
+    
+{% endblock%}

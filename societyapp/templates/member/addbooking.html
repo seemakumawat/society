@@ -1,0 +1,170 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+Enter booking detail
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addmbooking/{{booking.booking_id}}/' method='post' class="form-horizontal">
+            {% csrf_token %}
+              <div class="card-body">
+              <h4 class="card-title">Add new booking </h4>
+              <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >member</label
+                >
+                <div class="col-sm-9">
+                    <select name='mname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for member in members%}
+                    <option value='{{member.member_id}}'>{{member.name}}</option>
+                    {%endfor%}
+                 </select>
+                  </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >starting_date</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date'
+                   name='sdt' 
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="lname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  >ending_date</label
+                >
+                <div class="col-sm-9">
+                  <input
+                  type='date' 
+                  name='edt'
+                    class="form-control"
+                    id="lname"
+                    placeholder=""
+                    
+                    
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >time</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='text' 
+                      name='time'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                      
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >event_name</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='text' 
+                      name='txtenm'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                      
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >booking_date</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='date' 
+                      name='bdt'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                      
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >status</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='text' 
+                      name='st'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                      
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label
+                    for="lname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >total</label
+                  >
+                  <div class="col-sm-9">
+                    <input
+                    type='text' 
+                      name='total'
+                      class="form-control"
+                      id="lname"
+                      placeholder=""
+                      
+                      
+                    />
+                  </div>
+                </div>
+          
+            </div>
+            <div class="border-top">
+                <div class="card-body">
+                  <center>
+                  <button type="submit" class="btn btn-primary">
+                    Submit
+                  </button></center>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endblock%}

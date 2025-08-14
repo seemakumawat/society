@@ -1,0 +1,185 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/addincome/' method='post' class="form-horizontal">
+          {% csrf_token %}
+           <div class="card-body">
+            <h2 class="card-title"><h3 align='center'>Add new income</h3></h2>
+          <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4> member_maintenance</h4></label
+              >
+            <div class="col-sm-9">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  id="customControlValidation1"
+                  name="itype"
+                  value='maintenance'
+                  required
+                />
+                <label
+                  class="form-check-label mb-0"
+                  for="customControlValidation1"
+                  ><h4>maintenance</h4></label
+                >
+                <select name='mname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                {%for membermaintenance in membermaintenances%}
+                    <option value='{{membermaintenance.member_maintenance_id}}'>{{membermaintenance.maintenance.month_year}}</option>
+                {%endfor%}
+             </select>
+            </div>
+          </div>
+         
+          <div class="form-group row">
+         
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  > <h4>booking</h4></label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation2"
+                    name="itype"
+                    value='booking'
+                    required
+                  />
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation2"
+                    ><h4>booking</h4></label
+                  >
+                  <select name='bname'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  {%for booking in bookings%}
+                        <option value='{{booking.booking_id}}'>{{booking.event_name}}</option>
+                  {%endfor%}
+                </select>
+            </div>
+          </div>
+     
+          
+          <div class="form-group row">
+            
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4> deposit</h4></label
+              >
+              <div class="col-sm-9">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation2"
+                    name="itype"
+                    value='deposit'
+                    required
+                  />
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation2"
+                    ><h4>deposit</h4></label
+                  >
+                  <select name='dname'
+                    class="select2 form-select shadow-none"
+                    style="width: 100%; height: 36px">
+                    {%for deposit in deposits%}
+                        <option value='{{deposit.deposit_id}}'>{{deposit.description}}</option>
+                    {%endfor%}
+                  </select>
+              </div>
+            </div>
+        
+            
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                > <h4>other</h4></label
+              >
+              
+              <div class="col-sm-9">
+                
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="customControlValidation2"
+                    name="itype"
+                    value='other'
+                    required
+                  />
+                  <label
+                    class="form-check-label mb-0"
+                    for="customControlValidation2"
+                    ><h4>other</h4></label
+                  >
+              <select name='ot'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                
+                
+                {% for lst in lst1%}
+                  <option value={{lst}}>{{lst}}</option>
+                {% endfor %}
+                
+              </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='date' 
+                name='dt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>amount</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='number' 
+                name='amt'
+                  class="form-control"
+                  id="lname"
+                  placeholder="amount"
+                  
+                />
+              </div>
+            </div>
+           
+          <div class="border-top">
+            <div class="card-body">
+            <center><button type="submit" class="btn btn-primary" onclick='alert("Income added succefully")'>
+                Submit
+              </button></center>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

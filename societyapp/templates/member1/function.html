@@ -1,0 +1,56 @@
+{% extends "member1/index.html" %}
+{% block demo%}
+<div style='height:50px;width:100%'>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="section-title">	
+            <h3><span class="orange-text">Our</span> society's  Functions</h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-10 ml-5 col-md-12">
+        <div class="cart-table-wrap">
+            <table class="cart-table">
+                <thead class="cart-table-head">
+                    <tr class="table-head-row">
+                       
+                               
+                                {% comment %} <th class="product-total">Function id</th> {% endcomment %}
+                                <th class="product-total">Function name</th>
+                                <th class="product-total">Function place</th>
+                                <th class="product-total">Amount per member</th>
+                                <th class="product-total">Date</th>
+                                <th class="product-total">participate</th>
+                                
+                                
+                                
+                                
+                               
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for function  in functions%}
+                            <tr>
+                                {% comment %} {% if {{function.fdate}} > {{dt}}%} {% endcomment %}
+                                {% comment %} <td class="product-total">{{function.function_id}}</td> {% endcomment %}
+                                <td class="product-total">{{function.function_name}}</td>
+                                <td class="product-total">{{function.function_place}}</td>
+                                <td class="product-total">{{function.amount_per_member}}</td>
+                                <td class="product-total">{{function.fdate}}</td>
+                                <td class="product-total"><a href='/addmmemberfunction/{{function.function_id}}/'>participate</a></td>
+                                {% comment %} {%endif%} {% endcomment %}
+                               
+                              </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+</div>
+    
+{% endblock%}

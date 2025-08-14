@@ -1,0 +1,124 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="card">
+        <form  action='/editcommitteedetail/{{committeedetail.committee_detail_id}}/' method='post' class="form-horizontal">
+          {% csrf_token %}
+            <div class="card-body">
+              <h2 class="card-title"><h3 align='center'>Edit committeedetail</h3></h2>
+            <div class="form-group row">
+              <label
+                for="fname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>committee</h4></label
+              >
+              <div class="col-sm-9">
+                <select name='cname'
+                class="select2 form-select shadow-none"
+                style="width: 100%; height: 36px">
+                
+                {%for committee in committees%}
+                    {%if committee == committeedetail.committee%}
+
+                        <option value='{{committee.committee_id}}' selected>{{committee.work_of_committee}}</option>
+                    {%else%}
+                        <option value='{{committee.committee_id}}' >{{committee.work_of_committee}}</option>
+                    {%endif%}
+                {%endfor%}    
+             </select>
+              </div>
+            </div>
+            <div class="form-group row">
+                <label
+                  for="fname"
+                  class="col-sm-3 text-end control-label col-form-label"
+                  ><h4>Member</h4></label
+                >
+                <div class="col-sm-9">
+                  <select name='mname'
+                  class="select2 form-select shadow-none"
+                  style="width: 100%; height: 36px">
+                  
+                  {%for member in members%}
+                        {%if member == committeedetail.member%}
+                            <option value='{{member.member_id}}' selected>{{member.name}}</option>
+                        {%else%}
+                            <option value='{{member.member_id}}' >{{member.name}}</option>
+                        {%endif%}
+                {%endfor%} 
+               </select>
+                </div>
+              </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Member_joining_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text'
+                 name='jdt' 
+                  class="form-control"
+                  id="lname"
+                  placeholder="place"
+                  value="{{committeedetail.member_joining_date}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label
+                for="lname"
+                class="col-sm-3 text-end control-label col-form-label"
+                ><h4>Member_leaving_date</h4></label
+              >
+              <div class="col-sm-9">
+                <input
+                type='text' 
+                name='ldt'
+                  class="form-control"
+                  id="lname"
+                  placeholder=""
+                  value="{{committeedetail.member_leaving_date}}"
+                  
+                />
+              </div>
+            </div>
+            
+          </div>
+          <div class="border-top">
+            <div class="card-body">
+              <center>
+                <button type="submit" class="btn btn-primary">
+                  <i class="me-2 mdi mdi-border-color"> Update
+                  </i>
+                 </button>
+                 <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-delete">
+                    <a href='/deletecommitteedetail/{{committeedetail.committee_detail_id}}/' 
+                    onclick="return confirm ('Do you want to delete this row?')" 
+                    style="color:white">Delete 
+                  </i></a>
+                </button>
+                <button class="btn btn-primary">
+                  <i class="me-2 mdi mdi-arrow-left">
+                    <a href="/committeedetail/{{committeedetail.committee.committee_id}}/"
+                    style="color:white">Back 
+                  </i></a>
+                </button>
+                       
+                       &nbsp;<button type="reset" class="btn btn-primary"><i class="me-2 mdi mdi-restart">
+                        Reset
+                        </i>
+                      </button>
+                      </center>       
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+{% endblock%}

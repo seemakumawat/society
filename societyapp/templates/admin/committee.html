@@ -1,0 +1,40 @@
+{% extends "index1.html" %}
+{% block demo %}
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><h3>committee</h3> </h5>
+      <div class="table-responsive">
+        
+        <table
+          id="zero_config"
+          class="table table-striped table-bordered"
+        >
+          <thead>
+            <tr>
+                <th class="card-title"><h4>Committee_id</h4></th>
+                <th class="card-title"><h4>Work_of_committee</h4></th>
+                <th class="card-title"><h4>No_of_members</h4></th>
+                <th class="card-title"><h4>Committee_creation_date</h4></th>
+                <th class="card-title"><h4>show committee detail</h4></th>
+                <th class="card-title"><h4>show committee</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+         
+                {% for committee in committees%}
+                <tr>
+                    <td><h5>{{committee.committee_id}}</h5></td>
+                    <td><h5>{{committee.work_of_committee}}</h5></td>
+                    <td><h5>{{committee.no_of_members}}</h5></td>
+                    <td><h5>{{committee.committee_creation_date}}</h5></td>
+                 
+                    <td><a href='/committeedetail/{{committee.committee_id}}/' class="me-2 mdi mdi-eye-outline">show committee detail</a></td>
+                    <td><a href='/editcommittee/{{committee.committee_id}}/' class="me-2 mdi mdi-eye-outline">show committee</a></td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+        </div>
+      </div>
+        
+        {% endblock %}

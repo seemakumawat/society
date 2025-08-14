@@ -1,0 +1,31 @@
+<h1 align='center'>Notice
+   
+</h1>
+<table align='center' border='3px' width='90%'>
+    <thead>
+        <tr>
+            <th class="card-title"><h4>Id</h4></th>
+            <th class="card-title"><h4>Committee</h4></th>
+            <th class="card-title"><h4>Description</h4></th>
+            <th class="card-title"><h4>Date</h4></th>
+            <th class="card-title"><h4>Status</h4></th>
+            {% comment %} <th class="card-title"><h4>Edit</h4></th> {% endcomment %}
+            
+        </tr>
+      </thead>
+      <tbody>
+     
+            {% for notice  in notices%}
+            <tr>
+                <td><h5>{{notice.notice_id}}</h5></td>
+                <td><h5>{{notice.committee.work_of_committee}}</h5></td>
+                <td><h5>{{notice.description}}</h5></td>
+                <td><h5>{{notice.date}}</h5></td>
+                <td><h5>{{notice.status}}</h5></td>
+                {% comment %} <td><a href='/editnotice/{{notice.notice_id}}/'> <i class="me-2 mdi mdi-border-color"> edit</i></a></td> {% endcomment %}
+                
+                
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>

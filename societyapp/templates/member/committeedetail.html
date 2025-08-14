@@ -1,0 +1,43 @@
+{% extends "member/mindex.html" %}
+{%block hdemo%}
+committee of society
+{%endblock%}
+{%block mdemo%}
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table
+              id="zero_config"
+              class="table table-striped table-bordered"
+            >
+              <thead>
+                <tr>
+                    {% comment %} <th class="card-title">committee_detail_id</th> {% endcomment %}
+                    <th class="card-title">committee</th>
+                    <th class="card-title">member</th>
+                    <th class="card-title">member_joining_date</th>
+                    <th class="card-title">member_leaving_date</th>
+                    
+                    <th class="card-title">show all detail</th>
+                </tr>
+              </thead>
+              <tbody>
+             
+                    {% for committeedetail  in committeedetails%}
+                    <tr>
+                        {% comment %} <td>{{committeedetail.committee_detail_id}}</td> {% endcomment %}
+                        <td>{{committeedetail.committee.work_of_committee}}</td>
+                        <td>{{committeedetail.member.name}}</td>
+                        <td>{{committeedetail.member_joining_date}}</td>
+                        <td>{{committeedetail.member_leaving_date}}</td>
+                        
+                        <td><a href='/editmcommitteedetail/{{committeedetail.committee_detail_id}}/' class="me-2 mdi mdi-eye-outline">show all details</a></td>
+                        
+                    </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% endblock%}    
